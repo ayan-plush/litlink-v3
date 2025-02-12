@@ -115,11 +115,17 @@ class authControllers {
     getUser = async(req,res) => {
         console.log(req.body)
         const {accessToken} = req.body
+        const role = ''
+        const id =''
+        console.log(accessToken,'accessToken at server')
         if(accessToken){
         const {accessToken} = req.body
-        const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)                    
-        const role = deCodeToken.role
-        const id = deCodeToken.id }
+        const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)
+        console.log(deCodeToken)                    
+        role = deCodeToken.role
+        id = deCodeToken.id}
+        console.log(role,'role')
+        console.log(id,'id')
         try{
             if(role==='admin'){
                 const user = await adminModel.findById(id)
