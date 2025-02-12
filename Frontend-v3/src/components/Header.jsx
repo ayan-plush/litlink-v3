@@ -65,7 +65,7 @@ const Header = () => {
                     <div className='flex group cursor-pointer justify-center items-center gap-3 text-sm '>
                         {
                             userInfo ? <Link to='/dashboard' className='flex justify-center items-center gap-2 text-sm'><span>{userInfo?.image?<img className='h-[35px] rounded-full w-[35px] object-cover' src={userInfo?.image} alt="" />:<FaUser/>}</span><span>{userInfo?.name}</span></Link> 
-                            : <Link to='/login' className='flex justify-center items-center gap-2 text-sm'>
+                            : <Link to='/admin/login' className='flex justify-center items-center gap-2 text-sm'>
                             <span>Sign In</span></Link>
                         }
                     </div>
