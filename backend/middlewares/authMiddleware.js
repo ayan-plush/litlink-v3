@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 
 module.exports.authMiddleware = async(req,res,next) => {
     // const {accessToken} = req.cookies
+    console.log(req.body)
     const {token} = req.body
     //replacing accessToken with token 
     console.log(token,'accessToken')
