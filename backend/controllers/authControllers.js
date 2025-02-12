@@ -114,6 +114,7 @@ class authControllers {
 
     getUser = async(req,res) => {
         console.log(req.body)
+        const {accessToken} = req.body
         if(accessToken){
         const {accessToken} = req.body
         const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)                    
