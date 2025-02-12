@@ -56,7 +56,7 @@ const CategoryShop = () => {
 
 
     return (
-        <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")] h-screen overflow-x-hidden w-full'>
+        <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] h-screen overflow-x-hidden w-full'>
            <Header/>
            <SearchHeader/>
 

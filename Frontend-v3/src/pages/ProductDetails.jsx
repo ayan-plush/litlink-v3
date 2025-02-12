@@ -109,7 +109,7 @@ const ProductDetails = () => {
 
 
   return (
-    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")] overflow-y-scroll h-screen overflow-x-hidden w-full'>
+    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] overflow-y-scroll h-screen overflow-x-hidden w-full'>
       <Header/>
       <SearchHeader />
       <section className='mx-10  pt-10 flex max-md:flex-col gap-2'>

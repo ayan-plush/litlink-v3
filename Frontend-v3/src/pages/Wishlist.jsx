@@ -33,7 +33,7 @@ const Wishlist = () => {
     const outOfStockProduct = [1,2]
 
     return (
-        <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")] h-screen overflow-x-hidden w-full'>
+        <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] h-screen overflow-x-hidden w-full'>
            <Header/>
            <section className='bg-[url("https://litlink-frontend.onrender.com/images/banner/library.jpg")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
             <div className='absolute left-0 top-0 w-full h-full bg-[#2422228a]'>
