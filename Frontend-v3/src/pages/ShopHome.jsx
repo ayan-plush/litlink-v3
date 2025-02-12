@@ -34,7 +34,7 @@ const ShopHome = () => {
     },[])
 
   return (
-    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("http://localhost:5173/images/paperbg.jpg")] h-screen overflow-x-hidden w-full'>
+    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("./public/images/paperbg.jpg")] h-screen overflow-x-hidden w-full'>
       <Header />
       <PicMarquee products={home_products} />
       <Categories />
