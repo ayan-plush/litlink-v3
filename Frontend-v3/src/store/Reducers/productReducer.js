@@ -28,7 +28,7 @@ export const get_products = createAsyncThunk(
                
         
         try {            
-           const {data} = await api.get(`/products-get?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,{id},{withCredentials: true})
+           const {data} = await api.post(`/products-get?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,{id},{withCredentials: true})
             return fulfillWithValue(data)
         }
         catch(error) {
