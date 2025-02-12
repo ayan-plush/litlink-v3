@@ -66,7 +66,7 @@ const Header = () => {
                         {
                             userInfo ? <Link to='/dashboard' className='flex justify-center items-center gap-2 text-sm'><span>{userInfo?.image?<img className='h-[35px] rounded-full w-[35px] object-cover' src={userInfo?.image} alt="" />:<FaUser/>}</span><span>{userInfo?.name}</span></Link> 
                             : <Link to='/admin/login' className='flex justify-center items-center gap-2 text-sm'>
-                            <span>Sign In</span></Link>
+                            <span>Admin Log In</span></Link>
                         }
                     </div>
 
