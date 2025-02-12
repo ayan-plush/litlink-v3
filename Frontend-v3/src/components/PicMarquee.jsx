@@ -31,13 +31,13 @@ const PicMarquee = ( {products}) => {
     //  </motion.div>
     //  </div>
     // </div>
-    <div className=' flex mt-8 items-center h-[500px] w-full '>
+    <div className=' flex mt-8 items-center h-[520px] w-full '>
     <div className="flex">
     <motion.div initial={{x:0}} animate={{x:"-100%"}} 
     transition={{duration:80, repeat: Infinity, ease: "linear"}}
     className=" flex flex-shrink-0 ">
     {products?.map((image,index)=>{
-     return <img className="h-[500px] object-cover  w-[350px] pr-[5vh]" src={image.images[0]} key={index}/>
+     return <img className="h-[510px] object-cover  w-[350px] pr-[5vh]" src={image.images[0]} key={index}/>
     }
    )}
     </motion.div>
@@ -45,7 +45,7 @@ const PicMarquee = ( {products}) => {
     transition={{duration:80, repeat: Infinity, ease: "linear"}}
     className=" flex flex-shrink-0 ">
     {products?.map((image,index)=>{
-     return <img className="h-[500px] object-cover  w-[350px] pr-[5vh]" src={image.images[0]} key={index}/>
+     return <img className="h-[520px] object-cover  w-[350px] pr-[5vh]" src={image.images[0]} key={index}/>
     }
    )}
     </motion.div>
@@ -53,7 +53,7 @@ const PicMarquee = ( {products}) => {
     transition={{duration:80, repeat: Infinity, ease: "linear"}}
     className=" flex flex-shrink-0 ">
     {products?.map((image,index)=>{
-     return <img className="h-[500px] object-cover  w-[350px] pr-[5vh]" src={image.images[0]} key={index}/>
+     return <img className="h-[520px] object-cover  w-[350px] pr-[5vh]" src={image.images[0]} key={index}/>
     }
    )}
     </motion.div>

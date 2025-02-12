@@ -93,7 +93,7 @@ const Header = () => {
                             <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffe5be]': ''} text-[2vh]`} >HOME</Link></li>
                             <li><Link to="/library" className={`${pathname === '/library' ? 'text-[#ffe5be]': ''} text-[2vh]`}>LIBRARY</Link></li>
                             <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]': ''} text-[2vh]`}>OUR PURPOSE</Link></li>
-                            <li><Link to="/blog" className={`${pathname === '/blog' ? 'text-[#ffe5be]': ''} text-[2vh]`}>BLOG</Link></li>
+                            <li><Link to="https://sahityabookclub.wordpress.com/" className={`${pathname === '/blog' ? 'text-[#ffe5be]': ''} text-[2vh]`}>BLOG</Link></li>
                             {/* <li><Link to="/contactus" className={`${pathname === '/contactus' ? 'text-[#ffe5be]': ''} text-[2vh]`}>CONTACT US</Link></li> */}
                             {userInfo?<Link to="/dashboard" className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link>:<Link to="/register" className={`${pathname === '/register' ? 'text-[#ffe5be]': ''} text-[2vh]`}>REGISTER</Link>}
                         </ul>
@@ -156,7 +156,7 @@ const Header = () => {
                             <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`} >HOME</Link></li>
                             <li><Link to="/library" className={`${pathname === '/library' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>LIBRARY</Link></li>
                             <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>OUR PURPOSE</Link></li>
-                            <li><Link to="/blog" className={`${pathname === '/blog' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>BLOG</Link></li>
+                            <li><Link to="https://sahityabookclub.wordpress.com/" className={`${pathname === '/blog' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>BLOG</Link></li>
                             {/* <li><Link to="/contactus" className={`${pathname === '/contactus' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>CONTACT US</Link></li> */}
                             {userInfo?<Link to="/dashboard" className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link>:<Link to="/register" className={`${pathname === '/register' ? 'text-[#ffe5be]': ''} text-[2vh]`}>REGISTER</Link>}
 
@@ -177,7 +177,7 @@ const Header = () => {
                             </div>
                             <div className='flex justify-start w-[40px] gap-5'>
                                 <div className='relative flex justify-center items-center cursor-pointer w-[25px] h-[25px] rounded-full bg-[#ffe5be] '>
-                                    <Link className='text-[#312C23]]'><BiLogOutCircle/></Link>
+                                    <span onClick={()=>dispatch(logout({navigate,role}))} className='text-[#312C23]]'><BiLogOutCircle/></span>
                                     {/* <div className='bg-indigo-500 w-[15px] h-[15px] absolute rounded-full text-xs font-extralight text-white flex justify-center items-center -top-[3px] -right-[5px]'>{wishlist_count}</div> */}
                                 </div>                                
                             </div>
