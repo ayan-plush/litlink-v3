@@ -11,7 +11,7 @@ const AboutUs = () => {
         <Header/>
         <div className="flex max-md:flex-wrap">
             <div className="md:w-3/12" >
-                    <img className="h-full w-full object-scale-down" src="https://litlink-frontend.onrender.com/images/ayanpic.png" alt="" />
+                    <img className="h-full w-full object-scale-down" src="https://res.cloudinary.com/decks92gf/image/upload/v1739376827/ayanpic_csinrl.png" alt="" />
             </div>
             <div className="md:w-9/12">
                     
@@ -32,10 +32,7 @@ const AboutUs = () => {
             </div>
             
         </div>
-        
-
-
-      <PicMarquee/>
+      
       <Footer/>
     </div>
   )
