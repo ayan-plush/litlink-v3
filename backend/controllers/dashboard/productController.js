@@ -60,6 +60,7 @@ class productControllers{
     get_products = async (req,res) => {
         const {page,searchValue,perPage} = req.query        
         const {id} = req.body
+        console.log(id)
         try {
             let skipPage = ''
             if (perPage&&page) {
