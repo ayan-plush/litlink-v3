@@ -51,7 +51,7 @@ const Login = () => {
   },[successMessage,errorMessage])
 
   return (
-    <div className=' bg-cover bg-center bg-[url("http://localhost:5173/images/paperbg.jpg")]  min-h-screen bg-[#9f9279] font-light  flex-col justify-center items-center'>
+    <div className=' bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")]  min-h-screen bg-[#9f9279] font-light  flex-col justify-center items-center'>
       <Header/>
       <div className='w-full flex justify-center text-black p-2'>
         <div className=' p-4 rounded-md'>

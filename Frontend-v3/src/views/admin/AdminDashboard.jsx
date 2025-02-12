@@ -150,7 +150,7 @@ const AdminDashboard = () => {
               <ol className='relative border-1 border-slate-600 ml-4'>
                 <li className='mb-3 ml-6'>
                   <div className='flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] rounded-full z-10'>
-                    <img className=' w-full founded-full h-full rounded-full shadow-lg' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                    <img className=' w-full founded-full h-full rounded-full shadow-lg' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                   </div>
                   <div className='p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm '>
                     <div className="flex justify-between text-white items-center mb-2">
@@ -165,7 +165,7 @@ const AdminDashboard = () => {
                 </li>
                 <li className='mb-3 ml-6'>
                   <div className='flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] rounded-full z-10'>
-                    <img className=' w-full founded-full h-full rounded-full shadow-lg' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                    <img className=' w-full founded-full h-full rounded-full shadow-lg' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                   </div>
                   <div className='p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm '>
                     <div className="flex justify-between text-white items-center mb-2">
@@ -180,7 +180,7 @@ const AdminDashboard = () => {
                 </li>
                 <li className='mb-3 ml-6'>
                   <div className='flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] rounded-full z-10'>
-                    <img className=' w-full founded-full h-full rounded-full shadow-lg' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                    <img className=' w-full founded-full h-full rounded-full shadow-lg' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                   </div>
                   <div className='p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm '>
                     <div className="flex justify-between text-white items-center mb-2">

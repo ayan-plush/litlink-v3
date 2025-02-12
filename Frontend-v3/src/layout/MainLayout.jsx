@@ -10,7 +10,7 @@ function MainLayout() {
 
 
   return (
-    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("http://localhost:5173/images/paperbg.jpg")]  w-full min-h-screen '>
+    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")]  w-full min-h-screen '>
       <Header showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <SideBar showSidebar={showSidebar} setShowSidebar={setShowSidebar}/>
       <div className='ml-0 lg:ml-[260px] pt-[95px] transition-all  '><Outlet/></div>

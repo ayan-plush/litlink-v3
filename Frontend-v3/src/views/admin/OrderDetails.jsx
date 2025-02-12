@@ -80,7 +80,7 @@ const OrderDetails = () => {
                             <span className='font-light'>Active</span>
                         </div> */}
                         <div className='flex gap-3 text-md p-2 border-[#312C23] border-2 rounded-md '>
-                            <img className='w-[45px] h-[70px]' src="http://localhost:5173/images/category/6.jpg" alt="" />
+                            <img className='w-[45px] h-[70px]' src="https://litlink-frontend.onrender.com/images/category/6.jpg" alt="" />
                             <div className='' >
                                 <div>
                                     <h2>God of small things</h2>
@@ -102,7 +102,7 @@ const OrderDetails = () => {
                         </div>
 
                         <div className='flex gap-3 text-md p-2 border-[#312C23] border-2 rounded-md '>
-                            <img className='w-[45px] h-[70px]' src="http://localhost:5173/images/category/5.jpg" alt="" />
+                            <img className='w-[45px] h-[70px]' src="https://litlink-frontend.onrender.com/images/category/5.jpg" alt="" />
                             <div className='' >
                                 <div>
                                     <h2>God of small things</h2>
@@ -124,7 +124,7 @@ const OrderDetails = () => {
                         </div>
 
                         <div className='flex gap-3 text-md p-2 border-[#312C23] border-2 rounded-md '>
-                            <img className='w-[45px] h-[70px]' src="http://localhost:5173/images/category/4.jpg" alt="" />
+                            <img className='w-[45px] h-[70px]' src="https://litlink-frontend.onrender.com/images/category/4.jpg" alt="" />
                             <div className='' >
                                 <div>
                                     <h2>God of small things</h2>
@@ -171,7 +171,7 @@ const OrderDetails = () => {
                             </div>
                             
                             <div className='flex gap-3 text-md px-2 '>
-                            <img className='w-[55px] h-[55px] object-cover ' src="http://localhost:5173/images/category/4.jpg" alt="" />
+                            <img className='w-[55px] h-[55px] object-cover ' src="https://litlink-frontend.onrender.com/images/category/4.jpg" alt="" />
                             <div className='-mt-1' >
                                 <div>
                                     <h2>God of small things</h2>
@@ -199,7 +199,7 @@ const OrderDetails = () => {
                             </div>
                             
                             <div className='flex gap-3 text-md px-2 '>
-                            <img className='w-[55px] h-[55px] object-cover ' src="http://localhost:5173/images/category/4.jpg" alt="" />
+                            <img className='w-[55px] h-[55px] object-cover ' src="https://litlink-frontend.onrender.com/images/category/4.jpg" alt="" />
                             <div className='-mt-1' >
                                 <div>
                                     <h2>God of small things</h2>
@@ -227,7 +227,7 @@ const OrderDetails = () => {
                             </div>
                             
                             <div className='flex gap-3 text-md px-2 '>
-                            <img className='w-[55px] h-[55px] object-cover ' src="http://localhost:5173/images/category/4.jpg" alt="" />
+                            <img className='w-[55px] h-[55px] object-cover ' src="https://litlink-frontend.onrender.com/images/category/4.jpg" alt="" />
                             <div className='-mt-1' >
                                 <div>
                                     <h2>God of small things</h2>

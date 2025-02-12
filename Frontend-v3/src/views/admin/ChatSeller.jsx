@@ -19,7 +19,7 @@ const ChatSeller = () => {
 
                         <div className={`h-[60px] bg-[#887c6664] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-md cursor-pointer`}>
                             <div className='relative'>
-                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                             </div>
@@ -36,7 +36,7 @@ const ChatSeller = () => {
 
                         <div className={`h-[60px] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-sm cursor-pointer`}>
                             <div className='relative'>
-                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                             </div>
@@ -53,7 +53,7 @@ const ChatSeller = () => {
 
                         <div className={`h-[60px] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-sm cursor-pointer`}>
                             <div className='relative'>
-                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                             </div>
@@ -70,7 +70,7 @@ const ChatSeller = () => {
 
                         <div className={`h-[60px] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-sm cursor-pointer`}>
                             <div className='relative'>
-                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                             </div>
@@ -95,7 +95,7 @@ const ChatSeller = () => {
                             sellerId &&  <div className='flex justify-start items-center gap-3'>
                                 
                                 <div className='relative'>
-                                <img className='w-[45px] h-[45px] rounded-full border-[#ffffff8f] border-2 max-w-[45px] p-[2px]' src="http://localhost:5173/images/pic10.jpg" alt="" />
+                                <img className='w-[45px] h-[45px] rounded-full border-[#ffffff8f] border-2 max-w-[45px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic10.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
                                 </div>
 
@@ -123,7 +123,7 @@ const ChatSeller = () => {
                             <div className='w-full flex justify-start items-center'>
                                 <div className='flex justify-start items-start gap-2 md:px-3 py-2 max-w-full lg:max-w-[85%]'>
                                     <div>
-                                    <img className='w-[38px] h-[38px] rounded-full border-2 border-[#ffffff6c]  max-w-[38px] p-[3px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                    <img className='w-[38px] h-[38px] rounded-full border-2 border-[#ffffff6c]  max-w-[38px] p-[3px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
 
                                     </div>
                                     <div className='flex justify-center items-start flex-col w-full bg-indigo-500  text-white py-1 px-2 rounded-sm '>
@@ -141,7 +141,7 @@ const ChatSeller = () => {
                                     <div className='flex justify-center items-start flex-col w-full bg-red-500  text-white py-1 px-2 rounded-sm '>
                                     Awesome sauce wbu?
                                     </div>
-                                    <img className='w-[38px] h-[38px] rounded-full border-2 border-[#ffffff6c]  max-w-[38px] p-[3px]' src="http://localhost:5173/images/pic12.jpg" alt="" />
+                                    <img className='w-[38px] h-[38px] rounded-full border-2 border-[#ffffff6c]  max-w-[38px] p-[3px]' src="https://litlink-frontend.onrender.com/images/pic12.jpg" alt="" />
 
                                 </div>
 

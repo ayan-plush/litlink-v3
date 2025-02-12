@@ -2,26 +2,26 @@ import React from 'react'
 import { motion } from 'framer-motion'
 const PicMarquee = () => {
   const upperMarquee =[
-    "http://localhost:5173/images/pic1.jpg",
-    "http://localhost:5173/images/pic2.jpg",
-    "http://localhost:5173/images/pic3.jpg",
-    "http://localhost:5173/images/pic4.jpg",
-    "http://localhost:5173/images/pic5.jpg",
-    "http://localhost:5173/images/pic6.jpg",
-    "http://localhost:5173/images/pic7.jpg",
-    "http://localhost:5173/images/pic8.jpg",
-    "http://localhost:5173/images/pic9.jpg",
-    "http://localhost:5173/images/pic10.jpg",
-    "http://localhost:5173/images/pic1.jpg",
-    "http://localhost:5173/images/pic2.jpg",
-    "http://localhost:5173/images/pic3.jpg",
-    "http://localhost:5173/images/pic4.jpg",
-    "http://localhost:5173/images/pic5.jpg",
-    "http://localhost:5173/images/pic6.jpg",
-    "http://localhost:5173/images/pic7.jpg",
-    "http://localhost:5173/images/pic8.jpg",
-    "http://localhost:5173/images/pic9.jpg",
-    "http://localhost:5173/images/pic10.jpg",  ];
+    "https://litlink-frontend.onrender.com/images/pic1.jpg",
+    "https://litlink-frontend.onrender.com/images/pic2.jpg",
+    "https://litlink-frontend.onrender.com/images/pic3.jpg",
+    "https://litlink-frontend.onrender.com/images/pic4.jpg",
+    "https://litlink-frontend.onrender.com/images/pic5.jpg",
+    "https://litlink-frontend.onrender.com/images/pic6.jpg",
+    "https://litlink-frontend.onrender.com/images/pic7.jpg",
+    "https://litlink-frontend.onrender.com/images/pic8.jpg",
+    "https://litlink-frontend.onrender.com/images/pic9.jpg",
+    "https://litlink-frontend.onrender.com/images/pic10.jpg",
+    "https://litlink-frontend.onrender.com/images/pic1.jpg",
+    "https://litlink-frontend.onrender.com/images/pic2.jpg",
+    "https://litlink-frontend.onrender.com/images/pic3.jpg",
+    "https://litlink-frontend.onrender.com/images/pic4.jpg",
+    "https://litlink-frontend.onrender.com/images/pic5.jpg",
+    "https://litlink-frontend.onrender.com/images/pic6.jpg",
+    "https://litlink-frontend.onrender.com/images/pic7.jpg",
+    "https://litlink-frontend.onrender.com/images/pic8.jpg",
+    "https://litlink-frontend.onrender.com/images/pic9.jpg",
+    "https://litlink-frontend.onrender.com/images/pic10.jpg",  ];
   return (
     <div className=' flex items-center  h-[36vh] w-full bg-[black] bg-opacity-75'>
      <div className="flex">

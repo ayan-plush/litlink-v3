@@ -65,7 +65,7 @@ const DeactivateSellers = () => {
               {
                 [1,2,3,4,5,6].map((d,i)=><tr key={i}>
                 <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>{d}</td>
-                <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'><img className='w-[90px] h-[90px] object-cover ' src={`http://localhost:5173/images/category/${d}.jpg`} alt="" /></td>
+                <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'><img className='w-[90px] h-[90px] object-cover ' src={`https://litlink-frontend.onrender.com/images/category/${d}.jpg`} alt="" /></td>
                 <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>Fantasy</td>
                 <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>Fantasy@gmail.com</td>
                 <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>Fantasy</td>

@@ -35,7 +35,7 @@ const SideBar =({showSidebar, setShowSidebar})=> {
         <div className='h-[50px]'></div>
         {/* <div className='h-[200px] flex justify-center items-center'>
           <Link to='/' className='w-[180px] h-[180px] overflow-hidden'>
-          <img className='w-full h-full 'src="http://localhost:5173/images/theeye1.png" alt=""/>          
+          <img className='w-full h-full 'src="https://litlink-frontend.onrender.com/images/theeye1.png" alt=""/>          
           </Link>
 
         </div> */}

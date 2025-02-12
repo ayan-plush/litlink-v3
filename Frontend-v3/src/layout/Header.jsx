@@ -15,7 +15,7 @@ const Header = ({showSidebar, setShowSidebar}) => {
 
         </div>
         <div className='hidden md:flex justify-between '>
-        <Link className='flex items-center' to='/'> <img className='h-[30px]' src="http://localhost:5173/images/LitLinkLogoLight.png" alt="" /> </Link>
+        <Link className='flex items-center' to='/'> <img className='h-[30px]' src="https://litlink-frontend.onrender.com/images/LitLinkLogoLight.png" alt="" /> </Link>
 
         </div>
         <div className='hidden md:flex  '>

@@ -108,7 +108,7 @@ const SellerToCustomer = () => {
 
                         {/* <div className={`h-[60px] bg-[#887c6664] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-md cursor-pointer`}>
                             <div className='relative'>
-                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                             </div>
@@ -125,7 +125,7 @@ const SellerToCustomer = () => {
 
                         {/* <div className={`h-[60px] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-sm cursor-pointer`}>
                             <div className='relative'>
-                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                             </div>
@@ -142,7 +142,7 @@ const SellerToCustomer = () => {
 
                         <div className={`h-[60px] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-sm cursor-pointer`}>
                             <div className='relative'>
-                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                             </div>
@@ -159,7 +159,7 @@ const SellerToCustomer = () => {
 
                         <div className={`h-[60px] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-sm cursor-pointer`}>
                             <div className='relative'>
-                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="http://localhost:5173/images/pic9.jpg" alt="" />
+                                <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] border-2 max-w-[38px] p-[2px]' src="https://litlink-frontend.onrender.com/images/pic9.jpg" alt="" />
                                 <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                             </div>

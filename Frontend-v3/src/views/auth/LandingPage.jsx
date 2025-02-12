@@ -6,7 +6,7 @@ import End from '../End'
 
 const LandingPage = () => {
   return (
-    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("http://localhost:5173/images/paperbg.jpg")] overflow-hidden w-full min-h-screen '>
+    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")] overflow-hidden w-full min-h-screen '>
       <LandingNavbar/>
       <Landing/>
       <Marquee/>

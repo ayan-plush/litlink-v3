@@ -53,7 +53,7 @@ const AdminLogin = () => {
 
 
   return (
-    <div className='min-w-screen min-h-screen  bg-cover bg-center bg-[url("http://localhost:5173/images/paperbg.jpg")]  font-[impacted] tracking-wide bg-[#9f9279] font-light  flex justify-center items-center'>
+    <div className='min-w-screen min-h-screen  bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")]  font-[impacted] tracking-wide bg-[#9f9279] font-light  flex justify-center items-center'>
       <div className='w-[350px] text-black p-2'>
         <div className=' p-4 rounded-md'>
           <div className=''>

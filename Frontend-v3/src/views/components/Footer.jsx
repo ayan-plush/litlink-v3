@@ -7,7 +7,7 @@ const Footer = () => {
             <div className='w-[85%] flex flex-wrap mx-auto border-b py-16 max-md-lg:pb-10 max-sm:pb-6'>
                 <div className='w-3/12 max-lg:w-4/12 max-sm:w-full'>
                     <div className='flex flex-col gap-3'>
-                        <img className='w-[190px] h-[70px]' src="http://localhost:5173/images/LitLinkLogoLight.png" alt="logo" />
+                        <img className='w-[190px] h-[70px]' src="https://litlink-frontend.onrender.com/images/LitLinkLogoLight.png" alt="logo" />
                         <ul className='flex flex-col gap-2 text-[#fff2df]'>
                             <li>Address : Delhi Technological University, Rohini, New Delhi, 110042</li>
                             <li>Phone : 99xxxxxxxxx</li>

@@ -109,14 +109,14 @@ const ProductDetails = () => {
 
 
   return (
-    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("http://localhost:5173/images/paperbg.jpg")] overflow-y-scroll h-screen overflow-x-hidden w-full'>
+    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")] overflow-y-scroll h-screen overflow-x-hidden w-full'>
       <Header/>
       <SearchHeader />
       <section className='mx-10  pt-10 flex max-md:flex-col gap-2'>
         <div className='w-3/12 pt-5 max-md:w-full'>
 
 
-        {/* <img className=' h-[400px] w-[250px] object-scale-down' src="http://localhost:5173/images/bpic10.jpg" alt="" /> */}
+        {/* <img className=' h-[400px] w-[250px] object-scale-down' src="https://litlink-frontend.onrender.com/images/bpic10.jpg" alt="" /> */}
 
         {
             product?        
@@ -246,7 +246,7 @@ const ProductDetails = () => {
                     <Link className='block'>
                         <div className='relative h-[270px]'>
                             <div className='w-full h-full'>
-                    <img className='w-full object-scale-down h-full' src={`http://localhost:5173/images/bpic${i+1}.jpg`} alt="" />
+                    <img className='w-full object-scale-down h-full' src={`https://litlink-frontend.onrender.com/images/bpic${i+1}.jpg`} alt="" />
                     
                         </div>
             

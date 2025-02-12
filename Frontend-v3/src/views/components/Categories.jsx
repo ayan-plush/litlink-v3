@@ -59,7 +59,7 @@ const Categories = () => {
                 {
                     categories.map((c, i) => <Link className=' block' key={i} to='#'>
                         <div className='w-full h-full p-3 overflow-hidden'>
-                        <img className=' h-[200px] relative ' src={`http://localhost:5173/images/category/${i+1}.jpg`} alt="" />
+                        <img className=' h-[200px] relative ' src={`https://litlink-frontend.onrender.com/images/category/${i+1}.jpg`} alt="" />
                         <div className='absolute bottom-6 w-full mx-auto font-extralight uppercase flex justify-center items-center'>
                          <span className='py-[2px] px-6 bg-[#312C23] text-[#ffffff89]'>{c}</span>
                         </div>

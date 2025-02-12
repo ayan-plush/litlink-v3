@@ -18,7 +18,7 @@ const FeatureProducts = () => {
             <div className='relative overflow-hidden'>
             
         <div className='flex justify-center items-center absolute text-white w-[38px] h-[38px] rounded-full bg-indigo-500 font-semibold text-xs left-2 top-2'>5 ★</div> 
-        <img className='w-[200px] h-[240px] object-cover' src={`http://localhost:5173/images/category/${i+1}.jpg`} alt="" />   
+        <img className='w-[200px] h-[240px] object-cover' src={`https://litlink-frontend.onrender.com/images/category/${i+1}.jpg`} alt="" />   
         <ul className='flex transition-all duration-700 -bottom-10 justify-center items-center gap-2 absolute w-full group-hover:bottom-3'>
             <li className='w-[38px] h-[38px] cursor-pointer bg-white flex justify-center items-center rounded-full hover:bg-[#059473] hover:text-white hover:rotate-[720deg] transition-all'>
             <FaRegHeart />

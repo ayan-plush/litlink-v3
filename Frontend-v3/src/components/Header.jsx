@@ -82,7 +82,7 @@ const Header = () => {
             <div className='h-[80px] max-md-lg:h-[100px] overflow-hidden flex justify-between items-center flex-wrap'>
                 <div className='max-md-lg:w-full md-lg:w-full md-lg:flex md-lg:justify-between  '>
                     <div className='flex justify-between items-center'>
-                        <Link className='flex items-center ' to='/'> <img className='h-[40px]' src="http://localhost:5173/images/LitLinkLogo.png" alt="" /> </Link>
+                        <Link className='flex items-center ' to='/'> <img className='h-[40px]' src="https://litlink-frontend.onrender.com/images/LitLinkLogo.png" alt="" /> </Link>
             
                         <div onClick={() => setShowSidebar(true)} className=' justify-center items-center h-[30px] w-[30px] border border-[#312C23] rounded-sm cursor-pointer lg:hidden md-lg:hidden max-md-lg:flex xl:hidden'>
                             <span><FaList/></span>
@@ -136,7 +136,7 @@ const Header = () => {
         </div>
         <div className={`w-[300px] z-[9999] transition-all duration-200 fixed ${!showSidebar?'-left-[300px]':'left-0 top-0 overflow-auto h-screen py-6 px-8 bg-[#312C23] md-lg:hidden '}`}>
                 <div className='flex justify-start text-[#fff3e276] flex-col gap-6 '>
-                <Link className='flex items-center pb-[40px]  ' to='/'> <img className='h-[40px]' src="http://localhost:5173/images/LitLinkLogoLight.png" alt="" /> </Link>  
+                <Link className='flex items-center pb-[40px]  ' to='/'> <img className='h-[40px]' src="https://litlink-frontend.onrender.com/images/LitLinkLogoLight.png" alt="" /> </Link>  
                 <div className='flex group cursor-pointer justify-between items-center gap-3 font-extralight tracking-tighter text-[2vh] uppercase '>
                         {
                             userInfo ? <Link to='/dashboard' className='flex justify-center items-center gap-2 '><span className='text-[9px]'>{userInfo?.image?<img className='h-[35px] rounded-full w-[35px] object-cover' src={userInfo?.image} alt="" />:<FaUser/>}</span><span>{userInfo?.name}</span></Link> 

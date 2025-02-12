@@ -7,11 +7,11 @@ import PicMarquee from "../PicMarquee"
 
 const AboutUs = () => {
   return (
-    <div className=' bg-[#9f9279] bg-cover bg-center bg-[url("http://localhost:5173/images/paperbg.jpg")]  w-full min-h-screen  overflow-hidden'>
+    <div className=' bg-[#9f9279] bg-cover bg-center bg-[url("https://litlink-frontend.onrender.com/images/paperbg.jpg")]  w-full min-h-screen  overflow-hidden'>
         <Header/>
         <div className="flex max-md:flex-wrap">
             <div className="md:w-3/12" >
-                    <img className="h-full w-full object-scale-down" src="http://localhost:5173/images/ayanpic.png" alt="" />
+                    <img className="h-full w-full object-scale-down" src="https://litlink-frontend.onrender.com/images/ayanpic.png" alt="" />
             </div>
             <div className="md:w-9/12">
                     
