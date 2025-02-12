@@ -55,7 +55,7 @@ export const get_user_info = createAsyncThunk(
             
         console.log(info)
             
-           const {data} = await api.get('/get-user',info,{withCredentials: true})
+           const {data} = await api.post('/get-user',info,{withCredentials: true})
            
             
             return fulfillWithValue(data)
