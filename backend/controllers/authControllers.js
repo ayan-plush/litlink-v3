@@ -147,9 +147,8 @@ class authControllers {
 
 
     profile_image_upload = async(req,res) => {
-        const {id} = req
         const form = formidable({multiples:true})
-        form.parse(req,async(err,_,files)=>{
+        form.parse(req,async(err,fields,files)=>{
             cloudinary.config({
                 cloud_name: process.env.cloud_name,
                 api_key: process.env.api_key,
@@ -157,6 +156,7 @@ class authControllers {
                 secure: true
             })
             const {image} = files
+            const {id} = fields
             try {
                 const result = await cloudinary.uploader.upload(image.filepath,{folder: 'profile'});
                 if(result){

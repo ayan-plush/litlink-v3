@@ -27,6 +27,7 @@ const Profile = () => {
         if(e.target.files.length>0){
             const formData = new FormData()
             formData.append('image',e.target.files[0])
+            formData.append('id',userInfo?._id)
             dispatch(profile_image_upload(formData))
         }
     }
