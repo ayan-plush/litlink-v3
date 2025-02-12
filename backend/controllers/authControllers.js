@@ -7,6 +7,8 @@ const { responseReturn } = require("../utils/response")
 const bcrypt = require('bcrypt')
 const { createToken } = require("../utils/tokenCreate")
 const formidable = require("formidable")
+const jwt = require("jsonwebtoken");
+
 
 
 
@@ -111,8 +113,12 @@ class authControllers {
     }
 
     getUser = async(req,res) => {
-        
-        const {id,role} = req;
+        console.log(req.body)
+        if(accessToken){
+        const {accessToken} = req.body
+        const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)                    
+        role = deCodeToken.role
+        id = deCodeToken.id }
         try{
             if(role==='admin'){
                 const user = await adminModel.findById(id)
