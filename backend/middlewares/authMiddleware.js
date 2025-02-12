@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 
 module.exports.authMiddleware = async(req,res,next) => {
     const {accessToken} = req.cookies
+    console.log(accessToken,'accessToken')
     if(!accessToken){
         return res.status(409).json({error:'Please login first'})
 
@@ -14,7 +15,6 @@ module.exports.authMiddleware = async(req,res,next) => {
             req.role = deCodeToken.role
             req.id = deCodeToken.id
             next()
-
         }
         catch(error){
             return res.status(409).json({error:'Please login first'})
