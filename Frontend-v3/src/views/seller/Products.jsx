@@ -11,6 +11,8 @@ const Products = () => {
   const navigate = useNavigate()
   
   const {products,totalProduct} = useSelector(state=>state.product)
+  const {userInfo} = useSelector(state=>state.auth)
+
 
     const [currentPage, setCurrentPage] = useState(1)
     const [searchValue, setSearchValue] = useState('')
@@ -22,7 +24,8 @@ const Products = () => {
       const obj = {
           perPage: parseInt(perPage),
           page: parseInt(currentPage),
-          searchValue
+          searchValue,
+          id: userInfo?._id
       }
       dispatch(get_products(obj))
     },[searchValue,currentPage,perPage])

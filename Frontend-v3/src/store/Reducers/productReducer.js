@@ -24,11 +24,11 @@ export const add_product = createAsyncThunk(
 
 export const get_products = createAsyncThunk(
     'product/get_products',
-    async({perPage,page,searchValue},{rejectWithValue,fulfillWithValue}) => {
+    async({perPage,page,searchValue,id},{rejectWithValue,fulfillWithValue}) => {
                
         
         try {            
-           const {data} = await api.get(`/products-get?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,{withCredentials: true})
+           const {data} = await api.get(`/products-get?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,{id},{withCredentials: true})
             return fulfillWithValue(data)
         }
         catch(error) {
