@@ -118,8 +118,8 @@ class authControllers {
         if(accessToken){
         const {accessToken} = req.body
         const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)                    
-        role = deCodeToken.role
-        id = deCodeToken.id }
+        const role = deCodeToken.role
+        const id = deCodeToken.id }
         try{
             if(role==='admin'){
                 const user = await adminModel.findById(id)
