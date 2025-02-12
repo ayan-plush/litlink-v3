@@ -115,15 +115,16 @@ class authControllers {
     getUser = async(req,res) => {
         console.log(req.body)
         const {accessToken} = req.body
-        const role = ''
-        const id =''
+        let role = ''
+        let id =''
         console.log(accessToken,'accessToken at server')
         if(accessToken){
         const {accessToken} = req.body
         const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)
         console.log(deCodeToken)                    
         role = deCodeToken.role
-        id = deCodeToken.id}
+        id = deCodeToken.id
+    }
         console.log(role,'role')
         console.log(id,'id')
         try{
