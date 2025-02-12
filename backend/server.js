@@ -10,6 +10,7 @@ const sellerModel = require('./models/sellerModel')
 const server = http.createServer(app)
 app.use(cors({
     origin : ['https://litlink-frontend.onrender.com'],
+    methods : "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials : true
 }))
 
