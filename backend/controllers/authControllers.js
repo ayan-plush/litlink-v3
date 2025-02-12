@@ -43,7 +43,6 @@ class authControllers {
 
     seller_register = async(req,res) => {
         const {name,email,password} = req.body
-        console.log(req.body)
         try{
             const getUser = await sellerModel.findOne({email})
             if(getUser){
@@ -78,6 +77,7 @@ class authControllers {
 
     seller_login = async(req,res) => {
         const {email,password} = req.body
+        console.log(req.body)
         
         try{
             const seller = await sellerModel.findOne({email}).select('+password')
