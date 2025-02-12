@@ -1,13 +1,12 @@
 const productController = require('../../controllers/dashboard/productController')
-const { authMiddleware } = require('../../middlewares/authMiddleware')
 
 const router = require('express').Router()
 
-router.post('/product-add',authMiddleware,productController.add_product)
-router.get('/products-get',authMiddleware, productController.get_products)
-router.get('/product-get/:productId',authMiddleware, productController.get_product)
-router.post('/product-update',authMiddleware, productController.update_product)
-router.post('/product-image-update',authMiddleware, productController.update_product_image)
+router.post('/product-add',productController.add_product)
+router.get('/products-get', productController.get_products)
+router.get('/product-get/:productId', productController.get_product)
+router.post('/product-update', productController.update_product)
+router.post('/product-image-update', productController.update_product_image)
 
 
 
