@@ -7,7 +7,7 @@ import { add_friend, get_user_messages, messageClear, send_message } from '../..
 import toast from 'react-hot-toast'
 
 // socket io has to be the last import
-const socket = io('http://localhost:5000')
+const socket = io('https://litlink-backend.onrender.com')
 
 const SellerToCustomer = () => {
     const messagesEndRef = useRef(null)
