@@ -9,10 +9,9 @@ const cloudinary = require('cloudinary').v2
 
 class productControllers{
     add_product = async (req,res) => {
-        const {id} = req
         const form = formidable({multiples:true})
         form.parse(req,async(err,field,files)=>{
-            let {name,category,description,stock,price,tags,shopName,author} = field
+            let {name,category,description,stock,price,tags,sellerId,shopName,author} = field
             const {images} = files
             const slug = slugify(name).toLowerCase()
             cloudinary.config({
@@ -35,7 +34,7 @@ class productControllers{
                 }
                 
                 await productModel.create({
-                    sellerId: id,
+                    sellerId: sellerId,
                     name,
                     slug,                    
                     category: category,

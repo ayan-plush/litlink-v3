@@ -186,6 +186,7 @@ const AddProduct = () => {
         formData.append('stock',state.stock)
         formData.append('shopName',userInfo?.name)
         formData.append('category',category)
+        formData.append('sellerId',userInfo?._id)
         for (let i = 0; i < images.length; i++) {
             
             formData.append('images',images[i])

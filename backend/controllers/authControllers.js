@@ -124,7 +124,7 @@ class authControllers {
         console.log(deCodeToken)                    
         role = deCodeToken.role
         id = deCodeToken.id
-    }
+        }
         console.log(role,'role')
         console.log(id,'id')
         try{
