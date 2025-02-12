@@ -13,7 +13,6 @@ const formidable = require("formidable")
 class authControllers {
     admin_login = async(req,res) => {
         const {email,password} = req.body
-        console.log(req.body)
         try{
             const admin = await adminModel.findOne({email}).select('+password')
             if(admin){
@@ -44,6 +43,7 @@ class authControllers {
 
     seller_register = async(req,res) => {
         const {name,email,password} = req.body
+        console.log(req.body)
         try{
             const getUser = await sellerModel.findOne({email})
             if(getUser){
