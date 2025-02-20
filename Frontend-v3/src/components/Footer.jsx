@@ -9,9 +9,8 @@ const Footer = () => {
                     <div className='flex flex-col gap-3'>
                         <img className='w-[190px] h-[70px]' src="https://litlink-frontend.onrender.com/images/LitLinkLogoLight.png" alt="logo" />
                         <ul className='flex flex-col gap-2 text-[#fff2df]'>
-                            <li>Address :  2504 Ivins Avenue, Egg Harbor Township, NJ 08234,</li>
-                            <li>Phone : 4343434344</li>
-                            <li>Email : support@easylearingbd.com</li>
+                            <li>Address :Delhi Technological University, Rohini, New Delhi, Delhi, 110042</li>
+                            <li>Email : fwd.ayan@gmail.com</li>
                         </ul> 
                     </div> 
                 </div>
