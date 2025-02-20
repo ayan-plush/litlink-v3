@@ -157,14 +157,14 @@ const ProductDetails = () => {
         <div className='flex'><span className=' font-extralight pl-3 pr-2 '>Tags:</span> <div className='flex gap-2'>{product?.tag?.map((t,i)=> <div key={i} className='underline'>{t}</div>)}</div></div>
 
         <div className='flex mt-2 text-md font-extralight pl-3'><span>Owner:</span><Link to={`/seller/about-customer/${product.sellerId}`} className='px-2'>{product?.shopName}</Link><button className='bg-[#312c2362] text-[#f7e1b9] px-2 rounded-md underline border border-transparent hover:border-[#312c2362]'><IoChatbubbleOutline className='cursor-pointer' onClick={()=> navigate(`/seller/dashboard/chat-customer/${product.sellerId}`)} /></button></div>
-        <div className='flex mt-2 text-sm font-extralight pl-3'><span>Status:</span><span className='px-2'>With User X</span></div>
+        <div className='flex mt-2 text-sm font-extralight pl-3'><span>Status:</span><span className='px-2'>Available</span></div>
         <div className='mt-2 text-md font-light uppercase pl-3'> <button onClick={() => setState(!state)} className={`py-1 hover:text-white rounded-xl cursor-pointer px-5 hover:bg-[#059473] ${state === 'reviews' ? 'bg-[#312c23] text-white' : 'bg-[#059473] text-white'} rounded-sm`}>Reviews </button>
         </div>
-        <div className='pl-5'>
+        {/* <div className='pl-5'>
             {
                 !state? <Reviews/>: <></>
             }
-        </div>
+        </div> */}
         </div>
         
       </section>
