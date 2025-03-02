@@ -9,7 +9,7 @@ const AboutUs = () => {
   return (
     <div className=' bg-[#9f9279] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")]  w-full min-h-screen  overflow-hidden'>
         <Header/>
-        <div className="flex max-md:flex-wrap">
+        <div className="flex md:pt-35 pt-25 max-md:flex-wrap">
             <div className="md:w-3/12" >
                     <img className="h-full w-full object-scale-down" src="https://res.cloudinary.com/decks92gf/image/upload/v1739376827/ayanpic_csinrl.png" alt="" />
             </div>

@@ -53,7 +53,7 @@ const Login = () => {
   return (
     <div className=' bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")]  min-h-screen bg-[#9f9279] font-light  flex-col justify-center items-center'>
       <Header/>
-      <div className='w-full flex justify-center text-black p-2'>
+      <div className='w-full md:pt-35 pt-25 flex justify-center text-black p-2'>
         <div className=' p-4 rounded-md'>
           <h1 className='text-xl mb-3 font-light'>Welcome to litlink</h1>
           <p className='text-sm mb-3 font-medium'>Enter your details</p>

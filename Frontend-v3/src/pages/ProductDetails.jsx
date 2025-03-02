@@ -109,9 +109,11 @@ const ProductDetails = () => {
 
 
   return (
-    <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] overflow-y-scroll h-screen overflow-x-hidden w-full'>
+    <div className='bg-[#9f9279] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] overflow-y-scroll h-screen overflow-x-hidden w-full'>
       <Header/>
-      <SearchHeader />
+      <div className='max-md:pt-26 pt-35'>
+           <SearchHeader/>
+        </div>
       <section className='mx-10  pt-10 flex max-md:flex-col gap-2'>
         <div className='w-3/12 pt-5 max-md:w-full'>
 

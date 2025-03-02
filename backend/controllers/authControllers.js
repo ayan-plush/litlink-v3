@@ -79,7 +79,6 @@ class authControllers {
 
     seller_login = async(req,res) => {
         const {email,password} = req.body
-        console.log(req.body)
         
         try{
             const seller = await sellerModel.findOne({email}).select('+password')
@@ -113,20 +112,15 @@ class authControllers {
     }
 
     getUser = async(req,res) => {
-        console.log(req.body)
         const {accessToken} = req.body
         let role = ''
         let id =''
-        console.log(accessToken,'accessToken at server')
         if(accessToken){
         const {accessToken} = req.body
         const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)
-        console.log(deCodeToken)                    
         role = deCodeToken.role
         id = deCodeToken.id
         }
-        console.log(role,'role')
-        console.log(id,'id')
         try{
             if(role==='admin'){
                 const user = await adminModel.findById(id)

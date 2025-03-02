@@ -68,14 +68,17 @@ const Shops = () => {
 
 
     return (
-        <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] h-screen overflow-x-hidden w-full'>
+        <div className='bg-[#9f9279] overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] h-screen overflow-x-hidden w-full'>
          <div className='h-[1px]' ref={messagesEndRef}></div>
 
            <Header/>
+           <div className='max-md:pt-26 pt-35'>
            <SearchHeader/>
+           </div>
+           
 
 
-           <section className='py-16'>
+           <section className='pt-16 '>
             <div className='w-[85%] max-md:w-[80%] max-sm:w-[90%] max-lg:w-[90%] h-full mx-5'>
                 <div className={`max-md:block hidden ${!filter?'mb-6':'mb-0'}`}>
                     <button onClick={()=>setFilter(!filter)} className='text-center w-full py-2 px-3 bg-indigo-500 rounded-md text-white'>
@@ -213,7 +216,7 @@ const Shops = () => {
             
            </section>
 
-           <section className='bg-[url("https://litlink-frontend.onrender.com/images/banner/library.jpg")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
+           <section className=' bg-[url("https://litlink-frontend.onrender.com/images/banner/library.jpg")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
             <div className='absolute left-0 top-0 w-full h-full bg-[#2422228a]'>
                 <div className='w-[85%] max-md:w-[80%] max-sm:w-[90%] max-lg:w-[90%] h-full mx-auto'>
                     <div className='flex flex-col justify-center gap-1 items-center h-full w-full text-white'>

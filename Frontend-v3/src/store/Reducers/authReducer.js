@@ -53,7 +53,6 @@ export const get_user_info = createAsyncThunk(
     async(info,{rejectWithValue,fulfillWithValue}) => {
         try {
             
-        console.log(info)
             
            const {data} = await api.post('/get-user',info,{withCredentials: true})
            

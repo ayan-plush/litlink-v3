@@ -56,9 +56,11 @@ const CategoryShop = () => {
 
 
     return (
-        <div className='bg-[#9f9279] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] h-screen overflow-x-hidden w-full'>
+        <div className='bg-[#9f9279] bg-cover overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] h-screen overflow-x-hidden w-full'>
            <Header/>
+           <div className='max-md:pt-26 pt-35'>
            <SearchHeader/>
+           </div>
 
            <section className='py-16'>
             <div className='w-[85%] max-md:w-[80%] max-sm:w-[90%] max-lg:w-[90%] h-full mx-5'>

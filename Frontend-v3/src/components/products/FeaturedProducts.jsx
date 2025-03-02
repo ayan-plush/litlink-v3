@@ -29,8 +29,8 @@ const FeatureProducts = ({latest_products}) => {
     return (
         <div className='w-[85%] justify-center flex flex-wrap mx-auto'>
             <div className='w-full'>
-            <div className='text-center font-[impacted] flex justify-center items-center flex-col text-4xl text-[#312C23] relative pb-[45px]'>
-                <h2> Recent Additions </h2>
+            <div className='text-center font-[impacted] flex justify-center items-center flex-col text-5xl text-[#312C23] relative pb-[45px]'>
+                <h2> RECENT ADDITIONS </h2>
                 <div className='w-[100px] h-[2px] bg-[#312C23] mt-4'></div>
             </div>
             </div>

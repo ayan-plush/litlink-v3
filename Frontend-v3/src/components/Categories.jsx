@@ -39,7 +39,7 @@ const Categories = () => {
     return (
         <div className='w-[87%] mx-auto pt-[45px] relative'>
              <div className='w-full'>
-            <div className='text-center flex justify-center items-center flex-col text-4xl text-[#312C23] font-[impacted] relative pb-[45px]'>
+            <div className='text-center flex justify-center items-center flex-col text-5xl text-[#312C23] font-[impacted] relative pb-[45px]'>
                 <h2>GENRES</h2>
                 <div className='w-[100px] h-[2px] bg-[#312C23] mt-4'></div>
             </div>

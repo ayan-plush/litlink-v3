@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 
 module.exports.authMiddleware = async(req,res,next) => {
-    console.log(req)
     const {accessToken} = req.cookies
     if(!accessToken){
         return res.status(409).json({error:'Please login first'})
@@ -9,8 +8,6 @@ module.exports.authMiddleware = async(req,res,next) => {
     else{
         try{
             const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)
-            console.log(accessToken,process.env.SECRET)
-            console.log(deCodeToken.role,deCodeToken.id)
             req.role = deCodeToken.role
             req.id = deCodeToken.id
             next()
