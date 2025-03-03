@@ -4,8 +4,13 @@ const PicMarquee = ( {products}) => {
   const [speed,setSpeed] = useState(30)
   const darray = [
     'https://res.cloudinary.com/decks92gf/image/upload/v1740898844/happy-person-green-shape_xf6tou.png',
-    'https://res.cloudinary.com/decks92gf/image/upload/v1740899886/person-reading-book-blue-shape_qxkikx.png',
+    'https://res.cloudinary.com/decks92gf/image/upload/v1740952195/7b70720863674b47bd650c28ead28827-removebg-preview_blsdjl.png',
     'https://res.cloudinary.com/decks92gf/image/upload/v1740899886/person-reading-book-red-shape_jbroto.png'
+  ]
+  const darray2 = [
+    'https://res.cloudinary.com/decks92gf/image/upload/v1740952195/0bd110d0269ed09c163643d7ed6bdce7-removebg-preview_qluhik.png',
+    'https://res.cloudinary.com/decks92gf/image/upload/v1740899886/person-reading-book-blue-shape_qxkikx.png',
+    'https://res.cloudinary.com/decks92gf/image/upload/v1740952195/138247f2e709735e749fcaa42742a5ef-removebg-preview_cp26yb.png'
   ]
    
   return (
@@ -83,7 +88,7 @@ const PicMarquee = ( {products}) => {
     transition={{duration:speed, repeat: Infinity, ease: "linear"}}
     className=" flex flex-shrink-0 ">
     {products?.map((image,index)=>{
-     return <img className="h-[260px] rounded-2xl object-cover  w-[170px] mr-[30px]" src={index%5===0?darray[(index/5)]:image.images[0]} key={index}/>
+     return <img className="h-[260px] rounded-2xl object-cover  w-[170px] mr-[30px]" src={index%5===0?darray2[(index/5)]:image.images[0]} key={index}/>
     }
    )}
 
@@ -92,7 +97,7 @@ const PicMarquee = ( {products}) => {
     transition={{duration:speed, repeat: Infinity, ease: "linear"}}
     className=" flex flex-shrink-0 ">
     {products?.map((image,index)=>{
-     return <img className="h-[260px] rounded-2xl object-cover   w-[170px] mr-[30px]" src={index%5===0?darray[(index/5)]:image.images[0]} key={index}/>
+     return <img className="h-[260px] rounded-2xl object-cover   w-[170px] mr-[30px]" src={index%5===0?darray2[(index/5)]:image.images[0]} key={index}/>
     }
    )}
 
@@ -101,7 +106,7 @@ const PicMarquee = ( {products}) => {
     transition={{duration:speed, repeat: Infinity, ease: "linear"}}
     className=" flex flex-shrink-0 ">
     {products?.map((image,index)=>{
-     return <img className="h-[260px] rounded-2xl object-cover   w-[170px]  mr-[30px]" src={index%5===0?darray[(index/5)]:image.images[0]} key={index}/>
+     return <img className="h-[260px] rounded-2xl object-cover   w-[170px]  mr-[30px]" src={index%5===0?darray2[(index/5)]:image.images[0]} key={index}/>
     }
    )}
 

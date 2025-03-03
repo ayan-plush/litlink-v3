@@ -11,6 +11,7 @@ import toast from 'react-hot-toast'
 import { MdArrowDownward } from 'react-icons/md'
 import { IoArrowDownCircleOutline } from 'react-icons/io5'
 import Spline from '@splinetool/react-spline';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
 
 
@@ -50,6 +51,9 @@ const ShopHome = () => {
       </div>
       <Header />
       <div className='absolute max-md:pt-20 w-full z-10'>
+        {/* a g h 
+        hlll
+        nnmkk */}
       <div className='md:flex max-md:hidden max-md:pb-10 max-md:pt-10 pt-20 items-center justify-center '>
       <div className='  flex items-center w-[80%] justify-between  '>
         <div className='text-[170px] max-md:pl-5 z-10 max-md:pt-30  max-md:text-[80px]  text-[#FBF1D7]  font-[impact] flex-col '>
@@ -67,7 +71,16 @@ const ShopHome = () => {
       
       </div>
       </div>
-      <PicMarquee products={home_products} />
+      
+      <div className=' md:h-[900px] md:bg-[#00000042]  border-t-2 border-t-[#0000003b] md:backdrop-blur-md rounded-t-3xl'>
+        <div className='md:pt-[15px] '>
+        <PicMarquee products={home_products} />
+
+        </div>
+      
+      </div>
+      
+      
 
 
 
@@ -77,14 +90,18 @@ const ShopHome = () => {
      
       </div>
       
-      
-      <div className=''>
+
+      <div className='relative'>
+      <div className=' bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] absolute w-full z-20 md:-mt-[20px] rounded-t-3xl'>
+      {/* bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] */}
       <Categories />
       <div className='py-[45px]'>
         <FeatureProducts latest_products = {latest_products}/>
       </div>
       <Footer/>
       </div>
+      </div>
+      
       
       
       
