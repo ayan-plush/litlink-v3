@@ -11,7 +11,6 @@ import toast from 'react-hot-toast'
 import { MdArrowDownward } from 'react-icons/md'
 import { IoArrowDownCircleOutline } from 'react-icons/io5'
 import Spline from '@splinetool/react-spline';
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
 
 
