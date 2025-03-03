@@ -61,7 +61,7 @@ const ShopHome = () => {
         <h1 className='-mt-20  max-md:-mt-10'>CONNECT</h1>
         <h1 className='-mt-20  max-md:-mt-10'>CONVERSE</h1>
         </div>
-        <img className='pt-10 max-md:pt-30 max-md:absolute h-[500px] object-cover' src="http://localhost:5173/images/earthseabook.png" alt="" />
+        <img className='pt-10 max-md:pt-30 max-md:absolute h-[500px] object-cover' src="https://res.cloudinary.com/decks92gf/image/upload/v1740911456/2-removebg-preview_wabm9b.png" alt="" />
       {/* <div className='h-[800px] w-[380px] '>
       <Spline
         scene="https://prod.spline.design/wEny1-ZVTTEv7-6G/scene.splinecode" 
