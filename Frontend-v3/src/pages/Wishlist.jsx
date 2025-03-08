@@ -56,12 +56,12 @@ const Wishlist = () => {
     <div className='w-[85%] max-lg:w-[90%] max-md:w-[90%] max-sm:w-[90%] mx-auto py-16'>
 
         {
-            card_products.length > 0 || outOfStockProduct > 0 ? <div className='flex flex-wrap'>
+            wishlist_product_count > 0 || outOfStockProduct > 0 ? <div className='flex flex-wrap'>
                 <div className='w-full max-md-lg:w-full'>
                     <div className='pr-3 max-md-lg:pr-0'>
                         <div className='flex flex-col gap-3'>
                             <div className='p-4'>
-                    <h2 className='text-[#312C23] font-[impacted] text-2xl'>Available Books {card_products.length}</h2>
+                    <h2 className='text-[#312C23] font-[impacted] text-2xl'>Available Books {wishlist_product_count}</h2>
                             </div>
 
                 {/* {
@@ -156,7 +156,7 @@ const Wishlist = () => {
             </div> 
             
             : <div>
-                <Link className='px-4 py-1 bg-indigo-500 text-white' to='/shops' > Shop Now</Link>
+                <Link className='px-4 py-1 bg-indigo-500 text-white' to='/library' >Library</Link>
             </div>
         }
 

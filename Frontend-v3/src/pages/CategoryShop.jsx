@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { lazy } from "react";
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { IoIosArrowForward } from "react-icons/io";
 import { Range } from 'react-range';

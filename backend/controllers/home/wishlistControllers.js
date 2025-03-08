@@ -33,7 +33,7 @@ class wishlistControllers{
                         productId,
                         userId,
                     })
-                    responseReturn(res,201,{message:'product added to wishlist',product_add,productCount})
+                    responseReturn(res,201,{message:'book added to to-be-read',product_add,productCount})
                 }
                 
             

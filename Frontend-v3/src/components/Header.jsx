@@ -41,8 +41,8 @@ const Header = () => {
     }
 
   return (
-    <div className="backdrop-blur-sm  w-screen z-200 fixed">
-      <div className="header-top bg-[#312C23] max-md-lg:hidden text-[#fff2df] ">  
+    <div className="backdrop-blur-sm  bg-[#ffffff17]  w-screen z-200 fixed">
+      <div className="header-top  bg-[#312C23] max-md-lg:hidden text-[#fff2df] ">  
         <div className='w-[85%] max-lg:w-[90%] mx-auto'>
             <div className='flex w-full justify-between items-center h-[50px]'>
                 <ul className='flex justify-start items-center font-medium gap-8 '>
@@ -77,9 +77,9 @@ const Header = () => {
         </div> 
       </div>
       {/* div part 1 */}
-      <div className="header-top z-30  "> 
+      <div className="header-top  z-30  "> 
         <div className='px-5'>
-            <div className='h-[80px] max-md-lg:h-[100px] overflow-hidden flex justify-between items-center flex-wrap'>
+            <div className='h-[80px]  max-md:h-[50px] max-md-lg:h-[100px] overflow-hidden flex justify-between items-center flex-wrap'>
                 <div className='max-md-lg:w-full md-lg:w-full md-lg:flex md-lg:justify-between  '>
                     <div className='flex justify-between items-center'>
                         <Link className='flex items-center ' to='/'> <img className='h-[40px]' src="https://litlink-frontend.onrender.com/images/LitLinkLogo.png" alt="" /> </Link>
