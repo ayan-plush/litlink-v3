@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Carousel from 'react-multi-carousel'
@@ -19,13 +19,14 @@ import { RiShoppingCartLine } from 'react-icons/ri'
 import { IoChatbubbleOutline } from "react-icons/io5";
 import toast from 'react-hot-toast'
 import { add_to_wishlist, messageClear } from '../store/Reducers/wishlistReducer'
+import { PropagateLoader, RingLoader } from 'react-spinners'
 
 
 
 const ProductDetails = () => {
     
     const {productId} = useParams()
-    const {product,latest_products} = useSelector(state => state.home)
+    const {product,latest_products,loader} = useSelector(state => state.home)
     const {errorMessage,successMessage} = useSelector(state=>state.wishlist)
     const {userInfo} = useSelector(state => state.auth)
     const navigate = useNavigate()
@@ -45,10 +46,19 @@ const ProductDetails = () => {
       
       },[successMessage,errorMessage])
 
+      const messagesEndRef = useRef(null)
+          
+              useEffect(() => {
+              if (messagesEndRef.current) {
+                  messagesEndRef.current.scrollIntoView()
+              }
+            }, [productId])
+
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(get_product_details(productId))
         dispatch(get_products())
+        setLoading(true)
     },[productId])
 
     const responsive = {
@@ -105,13 +115,22 @@ const ProductDetails = () => {
 
     const [state, setState] = useState(true)
 
+    const [loading, setLoading] = useState(true);
+    
+        setTimeout(()=>{
+          setLoading(false)
+        },2000)
+
 
 
 
   return (
-    <div className='bg-[#9f9279] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] overflow-y-scroll h-screen overflow-x-hidden w-full'>
+    <div  className='bg-[#9f9279] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] overflow-y-scroll h-screen overflow-x-hidden w-full'>
+        <div className={`${loader||loading?'':'hidden'} w-screen flex items-center justify-center z-[1999] h-screen fixed bg-[#352217] `}>
+        <RingLoader className='w-[100px] h-[100px]' color='#FBF1D7' />
+        </div>
       <Header/>
-      <div className='max-md:pt-26 pt-35'>
+      <div ref={messagesEndRef} className='max-md:pt-26 pt-35'>
            <SearchHeader/>
         </div>
       <section className='mx-10  pt-10 flex max-md:flex-col gap-2'>

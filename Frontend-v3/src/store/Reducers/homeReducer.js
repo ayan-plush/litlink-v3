@@ -91,6 +91,7 @@ export const homeReducer = createSlice({
         latest_products:[],
         totalProducts: 0,
         perPage: 3,
+        loader: false,
         errorMessage: "",
         priceRange : {
             low: 0,
@@ -109,11 +110,16 @@ export const homeReducer = createSlice({
             state.categories = payload.categories
          })
          .addCase(get_products.rejected, (state,{payload})=>{
-            state.errorMessage = payload.error
+            state.errorMessage = payload.error,
+            state.loader = false
+         })
+         .addCase(get_products.pending, (state,{payload})=>{
+            state.loader = true; 
          })
         .addCase(get_products.fulfilled, (state,{payload})=>{
             state.latest_products = payload.latest_products,
-            state.home_products = payload.products
+            state.home_products = payload.products,
+            state.loader = false
          })
          .addCase(price_range_product.rejected, (state,{payload})=>{
             state.errorMessage = payload.error
@@ -133,10 +139,15 @@ export const homeReducer = createSlice({
 
          })
          .addCase(get_product_details.rejected, (state,{payload})=>{
-            state.errorMessage = payload.error
+            state.errorMessage = payload.error,
+            state.loader = false
+         })
+         .addCase(get_product_details.pending, (state,{payload})=>{
+            state.loader = true; 
          })
         .addCase(get_product_details.fulfilled, (state,{payload})=>{
-            state.product = payload.product
+            state.product = payload.product,
+            state.loader = false
 
          })
          .addCase(get_friend_info.fulfilled, (state,{payload})=>{

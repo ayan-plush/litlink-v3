@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import LandingPage from "../../views/auth/LandingPage";
 import AboutUs from "../../views/auth/AboutUs";
-
+const ShopHome2 = lazy(()=> import("../../pages/ShopHome2"));
 const Unauthorized = lazy(()=> import("../../views/Unauthorized"));
 const Login = lazy(()=> import("../../views/auth/Login"));
 const Register = lazy(()=> import("../../views/auth/Register"));
@@ -47,7 +47,7 @@ const publicRoutes = [
     },
     {
         path: '/',
-        element: <ShopHome/>
+        element: <ShopHome2/>
     },
     {
         path: '/library',
