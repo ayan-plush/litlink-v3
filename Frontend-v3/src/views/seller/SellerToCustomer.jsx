@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import io from 'socket.io-client'
 import { add_friend, get_user_messages, messageClear, send_message } from '../../store/Reducers/chatReducer'
 import toast from 'react-hot-toast'
+import { RingLoader } from 'react-spinners'
 
 // socket io has to be the last import
 const socket = io('https://litlink-backend.onrender.com')
@@ -52,7 +53,7 @@ const SellerToCustomer = () => {
             userId:userInfo?._id,
             sellerId
         }))
-        if(recieverMessage.senderId!==current_friend.friendId&&recieverMessage.senderName!==undefined){
+        if(recieverMessage.senderId!==current_friend?.friendId&&recieverMessage.senderName!==undefined){
             toast(<div className=''>{`💌 new message by ${recieverMessage.senderName}`}</div>)
         }
     },[recieverMessage]) 
@@ -72,6 +73,12 @@ const SellerToCustomer = () => {
             send()
         }
       }
+      const [loading, setLoading] = useState(true);
+          
+              setTimeout(()=>{
+                setLoading(false)
+              },5000)
+    
 
   return (
     <div className='px-2 lg:px-7 py-5  '>
@@ -179,20 +186,21 @@ const SellerToCustomer = () => {
                 </div>
 
                 {current_friend?<div className='w-full md:w-[calc(100%-200px)] md:pl-4 '>
+                    
                     <div className='flex justify-between items-center'>
                         
                              <div className='flex justify-start items-center gap-3'>
                                 
                                 <div className='relative'>
-                                <img className='w-[45px] h-[45px] rounded-full border-[#ffffff8f] border-2 object-cover max-w-[45px] p-[2px]' src={current_friend.image} alt="" />
+                                <img className='w-[45px] h-[45px] rounded-full border-[#ffffff8f] border-2 object-cover max-w-[45px] p-[2px]' src={current_friend?.image} alt="" />
                                 {
-                                    activeUser.some(c=>c.userId===current_friend.friendId) && <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
+                                    activeUser.some(c=>c.userId===current_friend?.friendId) && <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
 
                                 }                                </div>
 
                                 <div className='flex justify-center items-start pl-3 flex-col w-full'>
                                 <div className='flex justify-between items-center  w-full'>
-                                    <h2 className=' font-[impacted] text-[#fdebd0] tracking-wide text-lg '>{current_friend.friendId===userInfo._id? 'YOU':`${current_friend.name}`}</h2>
+                                    <h2 className=' font-[impacted] text-[#fdebd0] tracking-wide text-lg '>{current_friend?.friendId===userInfo._id? 'YOU':`${current_friend?.name}`}</h2>
 
                                 </div>
                             </div>
@@ -220,7 +228,7 @@ const SellerToCustomer = () => {
                                     return (<div key={i} className={`${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'':'mt-5'} w-full flex justify-start items-center`}>
                                         <div className='flex font-light justify-start items-start gap-2 md:px-3  max-w-full lg:max-w-[85%]'>
                                             <div>
-                                            <img className={`${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'invisible':''} w-[38px] h-[38px] rounded-full border-2 border-[#ffffff6c] object-cover max-w-[38px] p-[3px]`} src={current_friend.image} alt="" />
+                                            <img className={`${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'invisible':''} w-[38px] h-[38px] rounded-full border-2 border-[#ffffff6c] object-cover max-w-[38px] p-[3px]`} src={current_friend?.image} alt="" />
 
                                             </div>
                                             <div className={`${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'rounded-bl-lg ':' '} flex flex-wrap justify-center items-start flex-col w-full pr-3 bg-[#C1F6A7] text-black py-1 px-2 rounded-t-lg rounded-br-lg`}>

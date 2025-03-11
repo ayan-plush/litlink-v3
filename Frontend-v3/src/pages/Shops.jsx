@@ -15,6 +15,7 @@ import Pagination from '../components/Pagination';
 import { useDispatch, useSelector } from 'react-redux';
 import { get_products,price_range_product,query_products } from '../store/Reducers/homeReducer';
 import SearchHeader from '../components/SearchHeader';
+import { RingLoader } from 'react-spinners';
 
 
 
@@ -65,11 +66,21 @@ const Shops = () => {
         }))
     },[state.values[0],state.values[1],category,rating,sortPrice,pageNumber,perPage])
 
+    const [loading, setLoading] = useState(true);
+    
+        setTimeout(()=>{
+          setLoading(false)
+        },2000)
+
 
 
     return (
         <div className='bg-[#9f9279] overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] h-screen overflow-x-hidden w-full'>
          <div className='h-[1px]' ref={messagesEndRef}></div>
+
+         <div className={`${loading?'':'hidden'} w-screen flex items-center justify-center z-[999] h-screen fixed bg-[#352217] `}>
+                  <RingLoader className='w-[700px] h-[700px]' color='#FBF1D7' />
+        </div>
 
            <Header/>
            <div className='max-md:pt-26 pt-35'>
@@ -220,13 +231,13 @@ const Shops = () => {
             <div className='absolute left-0 top-0 w-full h-full bg-[#2422228a]'>
                 <div className='w-[85%] max-md:w-[80%] max-sm:w-[90%] max-lg:w-[90%] h-full mx-auto'>
                     <div className='flex flex-col justify-center gap-1 items-center h-full w-full text-white'>
-                <h2 className='text-3xl font-bold'>Shop Page </h2>
+                <h2 className='text-3xl font-bold'>Library Page</h2>
                 <div className='flex justify-center items-center gap-2 text-2xl w-full'>
                         <Link to='/'>Home</Link>
                         <span className='pt-1'>
                         <IoIosArrowForward />
                         </span>
-                        <span>Shop </span>
+                        <span>Library</span>
                 </div>
                     </div>
                 </div>

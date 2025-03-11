@@ -131,11 +131,13 @@ export const homeReducer = createSlice({
 
          })
          .addCase(query_products.rejected, (state,{payload})=>{
-            state.errorMessage = payload.error
+            state.errorMessage = payload.error,
+            state.loader = false
          })
         .addCase(query_products.fulfilled, (state,{payload})=>{
             state.totalProducts = payload.totalProducts,
-            state.display_products = payload.result
+            state.display_products = payload.result,
+            state.loader = false
 
          })
          .addCase(get_product_details.rejected, (state,{payload})=>{

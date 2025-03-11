@@ -36,10 +36,10 @@ const ShopHome2 = () => {
     
     }
 
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [mousePosition, setMousePosition] = useState({ x: 100, y: 230 });
 
     // define if mouse is hovered on element
-    const [isHovered, setIsHovered] = useState(false);
+    const [size, setSize] = useState("50");
 
     // define location of mouse
     useEffect(() => {
@@ -53,7 +53,7 @@ const ShopHome2 = () => {
         };
     }, []);
 
-    const size = isHovered ? "650" : "50";
+    // const size = isHovered ? "650" : "50";
       useEffect(()=> {
     
             if(successMessage){
@@ -111,7 +111,7 @@ const ShopHome2 = () => {
 
               <div className='  flex items-center w-[80%] justify-between  '>
 
-                <div className='text-[170px] max-md:pl-5 z-10 max-md:pt-30  max-md:text-[80px]  text-[#FBF1D7]  font-[impact] flex-col '>
+                <div className='text-[170px] max-md:pl-5 z-10 max-md:pt-30  max-md:text-[80px]  text-[#322116]  font-[impact] flex-col '>
 
                   <h1 className='' >READ</h1>
                   <h1 className='-mt-20  max-md:-mt-10'>CONNECT</h1>
@@ -148,22 +148,22 @@ const ShopHome2 = () => {
                         }px`,
                         WebkitMaskSize: `${size}px`,
                     }}
-                    transition={{ ease: "backOut", duration: 0.4 }} className='absolute max-md:hidden [mask-size:100px] [mask-repeat:no-repeat]  [mask-image:url("https://res.cloudinary.com/decks92gf/image/upload/v1741013665/Circle-PNG-Clip-Art-HD-Quality_dqps3w.png")] z-20 bg-[#FBF1D7] max-md:pt-20 w-full '>
+                    transition={{ ease: "backOut", duration: 0.4 }} className='absolute max-md:hidden [mask-size:100px] [mask-repeat:no-repeat]  [mask-image:url("https://res.cloudinary.com/decks92gf/image/upload/v1741013665/Circle-PNG-Clip-Art-HD-Quality_dqps3w.png")] z-20  bg-[#322116] max-md:pt-20 w-full '>
 
             <div className='md:flex max-md:hidden max-md:pb-10 max-md:pt-10 pt-20 items-center justify-center '>
 
               <div className='  flex items-center w-[80%] justify-between  '>
 
-                <div className='text-[170px] max-md:pl-5  max-md:pt-30  max-md:text-[80px]  text-[#322116]  font-[impacted] flex-col '>
+                <div className='text-[170px] max-md:pl-5  max-md:pt-30  max-md:text-[80px]  text-[#FBF1D7]  font-[impacted] flex-col '>
 
-                  <h1 onMouseEnter={() => setIsHovered(true)}
-                              onMouseLeave={() => setIsHovered(false)} className='max-w-[300px]' >READ</h1>
+                  <h1 onMouseEnter={() => setSize("850")}
+                              onMouseLeave={() => setSize("50")} className='max-w-[300px]' >READ</h1>
 
-                  <h1 onMouseEnter={() => setIsHovered(true)}
-                              onMouseLeave={() => setIsHovered(false)} className='-mt-20  max-md:-mt-10'>CONNECT</h1>
+                  <h1 onMouseEnter={() => setSize("850")}
+                              onMouseLeave={() => setSize("50")} className='-mt-20  max-md:-mt-10'>CONNECT</h1>
 
-                  <h1 onMouseEnter={() => setIsHovered(true)}
-                              onMouseLeave={() => setIsHovered(false)} className='-mt-20  max-md:-mt-10'>CONVERSE</h1>
+                  <h1 onMouseEnter={() => setSize("850")}
+                              onMouseLeave={() => setSize("50")} className='-mt-20  max-md:-mt-10'>CONVERSE</h1>
 
                 </div>
 

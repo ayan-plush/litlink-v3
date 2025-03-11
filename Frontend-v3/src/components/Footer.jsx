@@ -18,24 +18,24 @@ const Footer = () => {
                 <div className='w-5/12 text-[#fff2df] max-lg:w-8/12 max-sm:w-full'>
                 <div className='flex justify-center max-sm:justify-start max-sm:mt-6 w-full'>
                         <div>
-                <h2 className='font-bold text-[#fff2df] text-lg mb-2'>Usefull Links </h2>
+                <h2 className='font-bold text-[#fff2df] text-lg mb-2'>Useful Links </h2>
                 <div className='flex justify-between gap-[80px] max-lg:gap-[40px]'>
                     <ul className='flex flex-col gap-2 text-[#fff2df] text-sm font-semibold'>
                         <li>
                             <Link>About Us </Link>
                         </li>
+                        {/* <li>
+                            <Link>Blog </Link>
+                        </li> */}
                         <li>
-                            <Link>About Our Shop </Link>
+                            <Link>Linkedin </Link>
                         </li>
                         <li>
-                            <Link>Delivery Information </Link>
+                            <Link>Instagram</Link>
                         </li>
-                        <li>
-                            <Link>Privacy Policy </Link>
-                        </li>
-                        <li>
-                            <Link>Blogs  </Link>
-                        </li>
+                        {/* <li>
+                            <Link>Instagram </Link>
+                        </li> */}
                     </ul>
 
                     <ul className='flex flex-col gap-2 text-[#fff2df] text-sm font-semibold'>
@@ -43,17 +43,17 @@ const Footer = () => {
                             <Link>Our Service </Link>
                         </li>
                         <li>
-                            <Link>Company Profile</Link>
+                            <Link>Contact us</Link>
                         </li>
                         <li>
-                            <Link>Delivery Information </Link>
+                            <Link>Twitter</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link>Privacy Policy </Link>
                         </li>
                         <li>
                             <Link>Blogs  </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                         </div> 
@@ -62,11 +62,11 @@ const Footer = () => {
 
                 <div className='w-4/12 text-[#fff2df] max-lg:w-full max-lg:mt-6'>
                 <div className='w-full flex flex-col justify-start gap-5'>
-                    <h2 className='font-bold text-lg mb-2'>Join Our Shop</h2>
-                    <span>Get Email updates about tour latest and shop specials offers</span>
-                    <div className='h-[50px] w-full bg-white border relative'>
+                    <h2 className='font-bold text-lg mb-2'>Join Our Family</h2>
+                    <span>Get Email updates from us</span>
+                    <div className='h-[50px] w-full bg-transparent border border-[#fff2df6c] rounded-md relative'>
                         <input className='h-full bg-transparent w-full px-3 outline-0' type="text" placeholder='Enter Your Email' />
-                        <button className='h-full absolute right-0 bg-[#C2AD86] uppercase px-4 font-[impacted] text-[#312C23] tracking-widest text-lg'>Subscribe</button>
+                        <button className='h-full absolute cursor-pointer hover:bg-[#c2ad86b6] right-0 bg-[#C2AD86] uppercase px-4 font-[impacted] text-[#312C23] tracking-widest text-lg'>Subscribe</button>
                      </div> 
 
             <ul className='flex justify-start items-center gap-3'>
