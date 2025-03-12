@@ -179,7 +179,7 @@ const ProductDetails = () => {
 
         <div className='flex mt-2 text-md font-extralight pl-3'><span>Owner:</span><Link to={`/seller/about-customer/${product.sellerId}`} className='px-2'>{product?.shopName}</Link><button className='bg-[#312c2362] text-[#f7e1b9] px-2 rounded-md underline border border-transparent hover:border-[#312c2362]'><IoChatbubbleOutline className='cursor-pointer'
          onClick={()=> {userInfo?navigate(`/seller/dashboard/chat-customer/${product.sellerId}`):navigate('/login')}} /></button></div>
-        <div className='flex mt-2 text-sm font-extralight pl-3'><span>Status:</span><span className='px-2'>Available</span></div>
+        <div className='flex mt-2 text-sm font-extralight pl-3'><span>Status:</span><span className='px-2'>{product?.status?.name==='Available'?'Available':'Unavailable'}</span></div>
         {/* <div className='mt-2 text-md font-light uppercase pl-3'> <button onClick={() => setState(!state)} className={`py-1 hover:text-white rounded-xl cursor-pointer px-5 hover:bg-[#059473] ${state === 'reviews' ? 'bg-[#312c23] text-white' : 'bg-[#059473] text-white'} rounded-sm`}>Reviews </button> */}
         {/* </div> */}
         {/* <div className='pl-5'>
@@ -261,30 +261,35 @@ const ProductDetails = () => {
     > 
 
     {
-        [1,2,3,4,5,6].map((p, i) => {
+        latest_products?.map((p, i) => {
             return (
 
                 <SwiperSlide key={i}>
-                    <Link className='block'>
+                    <div onClick={()=>navigate(`/product/details/${p?._id}`)} className='block'>
                         <div className='relative h-[270px]'>
                             <div className='w-full h-full'>
-                    <img className='w-full object-scale-down h-full' src={`https://litlink-frontend.onrender.com/images/bpic${i+1}.jpg`} alt="" />
+                    <img  className='w-full object-scale-down h-full' src={p.images[0]} alt="" />
                     
                         </div>
             
                 </div>
 
             <div className='p-4 flex flex-col gap-1'>
-            <h2 className='text-slate-600 text-lg font-bold'>Product Name </h2>
-            <div className='flex justify-start items-center gap-3'>
+            <h2 className='font-bold mb-2 md:h-[70px] lg:h-[60px]'>{p?.name.slice(0,30).trimEnd()}{p?.name.length>30?'...':''}</h2>
+                        <div className='flex flex-col'>
+                            {/* <span className='text-md font-semibold'>By: {p?.author.slice(0,10).trimEnd()}{p?.author.length>10?'...':''}</span>
+                            <span className='text-md font-semibold'>Owner: {p?.shopName.slice(0,10).trimEnd()}{p?.shopName.length>10?'...':''}</span> */}
+                            <span className='flex'><Rating ratings={p?.rating} /></span>                            
+            </div>
+            {/* <div className='flex justify-start items-center gap-3'>
                 <h2 className='text-lg font-bold text-slate-600'>$434</h2>
                 <div className='flex'>
                     <Rating ratings={4.5}  />
                 </div>
-            </div>
+            </div> */}
             </div>
 
-                    </Link>
+                    </div>
 
                 </SwiperSlide>
 

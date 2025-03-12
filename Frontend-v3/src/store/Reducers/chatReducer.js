@@ -44,6 +44,19 @@ export const get_user_messages = createAsyncThunk(
     }
 )
 
+export const get_friends = createAsyncThunk(
+    'chat/get_user_friends',
+    async(info,{rejectWithValue,fulfillWithValue}) => {
+        try {            
+           const {data} = await api.post('/chat/user/get-friends',info,{withCredentials: true})
+            
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
 
 
 
@@ -71,6 +84,9 @@ export const chatReducer = createSlice({
         state.my_friends = payload.MyFriends;
         state.current_friend = payload.currentFriend;
         state.fb_messages = payload.messages
+        })
+        .addCase(get_friends.fulfilled, (state,{payload})=>{
+            state.my_friends = payload.newFriends;
         })
         .addCase(send_message.fulfilled, (state,{payload})=>{
         state.my_friends = payload.newFriends;

@@ -21,6 +21,7 @@ const Profile = () => {
     )
     const dispatch = useDispatch()
     const {userInfo,loader,successMessage,errorMessage} = useSelector(state=>state.auth)
+    const phrase = '(Not Available for Tester)'
     
     const status = 'active'
     const add_image = (e) => {
@@ -118,9 +119,9 @@ const Profile = () => {
 
                 <div className=' px-0 md:px-5 py-2 '>
                     <div className='flex text-white justify-between text-sm flex-col gap-2 p-4 bg-[#121424] rounded-md relative '>
-                        <span className='absolute top-2 right-2 p-[6px] bg-yellow-500 rounded-md cursor-pointer'>
+                        {/* <span className='absolute top-2 right-2 p-[6px] bg-yellow-500 rounded-md cursor-pointer'>
                             <FaEdit/>
-                        </span>
+                        </span> */}
                         <div className='flex gap-2'>
                             <span> Name: </span>
                             <span> {userInfo?.name} </span>
@@ -137,14 +138,14 @@ const Profile = () => {
                             <span> Status: </span>
                             <span>  {userInfo?.status}  </span>
                         </div>
-                        <div className='flex gap-2'>
+                        {/* <div className='flex gap-2'>
                             <span> Payment Account: </span>
                             <p> {status === 'active' ?
 
                             <span className='bg-red-500 text-white text-xs cursor-pointer font-normal ml-2 px-2 py-0.5 rounded'>{userInfo.payment}</span> : <span className='bg-indigo-500 text-white text-xs cursor-pointer font-normal ml-2 px-2 py-0.5 rounded'>Click Active</span>
                             
                             } </p>
-                        </div>
+                        </div> */}
 
                     </div>
 
@@ -212,7 +213,7 @@ const Profile = () => {
             <div className='w-full md:w-6/12 pl-0 md:pl-7 mt-6 md:mt-0'>
 
             <div className='p-4  bg-[#312C23] text-[#fdebd0] rounded-md'>
-            <h1 className='text-xl font-[impacted]'>Change Password</h1>
+            <h1 className='text-xl font-[impacted]'>Change Password {phrase} </h1>
             <form>
                             <div className='flex flex-col w-full gap-1 mb-2'>
                             <label htmlFor='email'>email</label>

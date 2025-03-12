@@ -52,6 +52,13 @@ const productSchema = new Schema({
     rating : {
         type: Number,
         default : 5
+    },
+    status : {
+        type: Object,
+        default: {
+            name : "Available",
+            id : ''
+        },
     }
 },{timestamps: true})
 

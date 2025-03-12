@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoIosArrowForward } from "react-icons/io";
 import { FaRegWindowClose } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ const Wishlist = () => {
     const dispatch = useDispatch()
     const {userInfo} = useSelector(state => state.auth)
     const {wishlist_products,wishlist_product_count} = useSelector(state => state.wishlist)
-
+    const navigate = useNavigate()
      useEffect(() => {
             dispatch(get_from_wishlist(userInfo?._id))
         },[userInfo,wishlist_product_count])
@@ -35,17 +35,17 @@ const Wishlist = () => {
     return (
         <div className='bg-[#9f9279] overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")] h-screen overflow-x-hidden w-full'>
            <Header/>
-           <section className=' bg-[url("https://litlink-frontend.onrender.com/images/banner/library.jpg")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
+           <section className=' bg-[url("https://litlink-frontend.onrender.com/images/banner/library.jpg")] h-[220px] mt-20 md:mt-30 bg-cover bg-no-repeat relative bg-left'>
             <div className='absolute left-0 top-0 w-full h-full bg-[#2422228a]'>
                 <div className='w-[85%] max-md:w-[80%] max-sm:w-[90%] max-lg:w-[90%] h-full mx-auto'>
-                    <div className='flex flex-col justify-center gap-1 items-center h-full w-full text-white'>
-                <h2 className='text-3xl font-bold'>Wishlist </h2>
+                    <div className='flex flex-col justify-center gap-1 items-center h-full w-full text-[#c9b897]'>
+                <h2 className='text-3xl font-bold'>To Be Read </h2>
                 <div className='flex justify-center items-center gap-2 text-2xl w-full'>
                         <Link to='/'>Home</Link>
                         <span className='pt-1'>
                         <IoIosArrowForward />
                         </span>
-                        <span>Wishlist </span>
+                        <span>To Be Read </span>
                       </div>
                     </div> 
                 </div> 
@@ -61,7 +61,7 @@ const Wishlist = () => {
                     <div className='pr-3 max-md-lg:pr-0'>
                         <div className='flex flex-col gap-3'>
                             <div className='p-4'>
-                    <h2 className='text-[#312C23] font-[impacted] text-2xl'>Available Books {wishlist_product_count}</h2>
+                    <h2 className='text-[#312C23] font-[impacted] text-2xl'>TO BE READ {wishlist_product_count}</h2>
                             </div>
 
                 {/* {
@@ -93,11 +93,11 @@ const Wishlist = () => {
                 {
                     <div className={`w-full grid ${styles === 'grid' ? 'grid-cols-3 max-md-lg:grid-cols-2 max-md:grid-cols-2' : 'grid-cols-1 max-md-lg:grid-cols-2 max-md:grid-cols-2'} gap-3 `}>
                     {
-                      wishlist_products?  wishlist_products?.map((p, i)=> <div key={i} className={`flex relative transition-all duration-1000 hover:shadow-md hover:-translate-y-3 ${styles === 'grid' ? 'flex-col justify-start items-start' : 'justify-start items-center max-md-lg:flex-col max-md-lg:justify-start max-md-lg:items-start'} w-full gap-4 p-1 rounded-md`}>
+                      wishlist_products?  wishlist_products?.map((p, i)=> <div key={i}  className={`flex cursor-pointer relative transition-all duration-1000 hover:shadow-md hover:-translate-y-3 ${styles === 'grid' ? 'flex-col justify-start items-start' : 'justify-start items-center max-md-lg:flex-col max-md-lg:justify-start max-md-lg:items-start'} w-full gap-4 p-1 rounded-md`}>
                             <div className={styles === 'grid' ? 'w-full  group h-[210px] max-md:h-[270px] max-xs:h-[170px] overflow-hidden' : 'max-md-lg:w-full  group h-[210px] max-md:h-[270px] overflow-hidden'}>
-                                <img className=' relative h-full w-full object-scale-down' src={p?.images[0]} alt="" />
+                                <img onClick={()=>navigate(`/product/details/${p._id}`)} className=' relative h-full w-full object-scale-down' src={p?.images[0]} alt="" />
                             </div>
-                            <div className='flex justify-center items-start flex-col gap-1'>
+                            <div onClick={()=>navigate(`/product/details/${p._id}`)} className='flex justify-center items-start flex-col gap-1'>
                                 <h2 className='font-bold'>{p?.name}</h2>
                                 <div className='flex flex-wrap justify-start items-center gap-3'>
                                     <span className='text-md font-semibold'>By: {p?.author}</span>
@@ -105,6 +105,7 @@ const Wishlist = () => {
                                         <Rating ratings={p?.rating} />
                                     </div>
                                 </div>
+                                <span>{p.status.id===''?'Available':'Unavailable'}</span>
                             </div>
                             <FaRegWindowClose onClick={()=> delete_wishlist_product(p._id)} className='absolute hover:text-red-400 w-[20px] h-[20px] top-0 max-md:right-0 right-20'/>
                             
@@ -116,7 +117,7 @@ const Wishlist = () => {
                 </div>
                 }
 
-                {
+                {/* {
                     outOfStockProduct.length > 0 && <div className='flex flex-col gap-3'>
                          <div className='p-4'>
                     <h2 className='text-[#312C23] font-[impacted] text-2xl'>Unavailable {outOfStockProduct.length}</h2>
@@ -145,7 +146,7 @@ const Wishlist = () => {
                   </div>           
 
                     </div>
-                }            
+                }             */}
 
 
 

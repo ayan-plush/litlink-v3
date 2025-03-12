@@ -3,6 +3,7 @@ const { responseReturn } = require("../../utils/response")
 const { default: slugify } = require("slugify")
 const productModel = require("../../models/productModel")
 const { extractPublicId } = require ('cloudinary-build-url')
+const lendModel = require("../../models/borrowing/lendModel")
 
 
 const cloudinary = require('cloudinary').v2
@@ -110,7 +111,7 @@ class productControllers{
     }
 
     update_product = async (req,res) => {
-        const {name,description,category,stock,tags,price,shopName,author,productId} = req.body
+        const {name,description,category,status,stock,tags,price,shopName,author,productId,lenderId} = req.body
         const slug = slugify(name).toLowerCase()
 
         try {
@@ -123,9 +124,55 @@ class productControllers{
                 author,
                 shopName,
                 slug,
-                category
+                category,
+                status
             })
             const product = await productModel.findById(productId)
+
+            if(lenderId!==''){
+                const checkStatus = await lendModel.findOne({$and:[
+                    {
+                        lenderId:{
+                            $eq: lenderId
+                        }
+                    },
+                    {
+                        bookId:{
+                            $eq: productId
+                        }
+                    }
+                ]})
+                if(!checkStatus&&status.id!==''){
+
+                    await lendModel.create({
+                        lenderId: lenderId,
+                        borrowerId: status.id,
+                        bookId: productId,
+                        book: product
+
+                    })
+
+                }
+                else if(status.id===''&&checkStatus){
+                    await lendModel.deleteOne({
+                        bookId: productId
+                    })
+                }
+                else {
+                    await lendModel.updateOne({
+                        bookId: productId
+                    },
+                    {
+                        lenderId: lenderId,
+                        borrowerId: status.id,
+                        bookId: productId,
+                        book: product
+
+                    })
+                }
+            }
+            
+
             responseReturn(res,200,{product,message: "Book Updated Successfully"})
         } catch (error) {
             responseReturn(res,500,{error : error.message})

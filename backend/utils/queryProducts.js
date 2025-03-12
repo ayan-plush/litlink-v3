@@ -59,6 +59,8 @@ class queryProducts {
         return this
     }
 
+
+
     getProducts = () => {
         return this.products
     }
@@ -70,6 +72,11 @@ class queryProducts {
 
     searchQuery = () => {
         this.products = this.query.searchValue ? this.products.filter(p => p.name.toUpperCase().indexOf(this.query.searchValue.toUpperCase())>-1) : this.products
+        return this
+    }
+
+    availableQuery = () => {
+        this.products = this.products.filter(p => p.status.id==='')
         return this
     }
     

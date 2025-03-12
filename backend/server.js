@@ -9,7 +9,7 @@ const http = require('http')
 const sellerModel = require('./models/sellerModel')
 const server = http.createServer(app)
 app.use(cors({
-    origin : ['https://litlink-frontend.onrender.com'], // idk if this is good tho process.env.BASE_URL ,'http://localhost:5173'
+    origin : ['https://litlink-frontend.onrender.com','http://localhost:5173'], // idk if this is good tho process.env.BASE_URL ,'http://localhost:5173'
     methods : "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials : true
 }))

@@ -69,13 +69,13 @@ export const allNav =[
         role: 'admin',
         path: '/admin/dashboard/chat-seller'
     },
-    {
-        id:9,
-        title: 'Dashboard',
-        icon: <AiOutlineDashboard />,
-        role: 'seller',
-        path: '/seller/dashboard'
-    },
+    // {
+    //     id:9,
+    //     title: 'Dashboard',
+    //     icon: <AiOutlineDashboard />,
+    //     role: 'seller',
+    //     path: '/seller/dashboard'
+    // },
     
     {
         id:10,
@@ -98,13 +98,13 @@ export const allNav =[
     //     role: 'seller',
     //     path: '/seller/dashboard/discount-product'
     // },
-    {
-        id:13,
-        title: 'Orders',
-        icon: <FaShoppingCart />,
-        role: 'seller',
-        path: '/seller/dashboard/orders'
-    },
+    // {
+    //     id:13,
+    //     title: 'Orders',
+    //     icon: <FaShoppingCart />,
+    //     role: 'seller',
+    //     path: '/seller/dashboard/orders'
+    // },
     // {
     //     id:14,
     //     title: 'Payments',
@@ -119,13 +119,13 @@ export const allNav =[
         role: 'seller',
         path: '/seller/dashboard/chat-customer'
     },
-    {
-        id:16,
-        title: 'Chat With Support',
-        icon: <IoChatbubbles />,
-        role: 'seller',
-        path: '/seller/dashboard/chat-support'
-    },
+    // {
+    //     id:16,
+    //     title: 'Chat With Support',
+    //     icon: <IoChatbubbles />,
+    //     role: 'seller',
+    //     path: '/seller/dashboard/chat-support'
+    // },
     {
         id:17,
         title: 'Profile',

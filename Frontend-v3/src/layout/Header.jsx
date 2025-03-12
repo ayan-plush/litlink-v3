@@ -24,7 +24,7 @@ const Header = ({showSidebar, setShowSidebar}) => {
                             <li><Link to="/" className={` text-[2vh]`} >HOME</Link></li>
                             <li><Link to="/library" className={` text-[2vh]`}>LIBRARY</Link></li>
                             <li><Link to="/aboutus" className={` text-[2vh]`}>OUR PURPOSE</Link></li>
-                            <li><Link to="" className={` text-[2vh]`}>BLOG</Link></li>
+                            <li><Link to="/fordev" className={` text-[2vh]`}>FOR DEVS</Link></li>
                             {/* <li><Link to="/contactus" className={` text-[2vh]`}>CONTACT US</Link></li> */}
                         </ul>
           {/* <input className=' autofill:shadow-[inset_0_0_0px_1000px_rgb(160,150,130)] px-3 py-2 outline-none border bg-transparent border-[#00000094] rounded-3xl text-black focus:border-[#000000b5] overflow-auto placeholder-[#00000094]' type='text' name='search'  placeholder='search'/> */}

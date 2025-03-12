@@ -31,7 +31,7 @@ const CategoryShop = () => {
     const [sortPrice, setSortPrice] = useState('')
 
     const [styles, setStyles] = useState('grid')
-    const [perPage, setPerPage] = useState(9)
+    const [perPage, setPerPage] = useState(8)
     const [pageNumber, setPageNumber] = useState(1)
     
     const dispatch = useDispatch()

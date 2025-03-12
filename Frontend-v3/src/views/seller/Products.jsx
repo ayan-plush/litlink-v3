@@ -50,8 +50,8 @@ const Products = () => {
               <th scope='col' className='py-3 px-4'>Name</th>
               <th scope='col' className='py-3 px-4'>Genre</th>
               <th scope='col' className='py-3 px-4'>Author</th>
-              <th scope='col' className='py-3 px-4'>Price</th>
-              <th scope='col' className='py-3 px-4'>Discount</th>
+              <th scope='col' className='py-3 px-4'>Pages</th>
+              {/* <th scope='col' className='py-3 px-4'>Discount</th> */}
               <th scope='col' className='py-3 px-4'>Stock</th>
               <th scope='col' className='py-3 px-4'>Action</th>
             </tr>
@@ -65,7 +65,7 @@ const Products = () => {
                 <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>{d?.category}</td>
                 <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>{d?.author}</td>
                 <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>{d?.price}</td>
-                <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>{d.discount===0 ? <span className='font-extralight'>No Discount</span>: <span>{d?.discount}%</span>}</td>
+                {/* <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>{d.discount===0 ? <span className='font-extralight'>No Discount</span>: <span>{d?.discount}%</span>}</td> */}
                 <td scope='row' className='py-3 px-4 font-medium whitespace-nowrap'>{d?.stock}</td>
 
                 

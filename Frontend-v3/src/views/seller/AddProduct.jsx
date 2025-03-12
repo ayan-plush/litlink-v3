@@ -273,7 +273,7 @@ const AddProduct = () => {
                         <div className='lg:flex md:w-1/2  gap-1'>
                             <div className='flex-col md:w-1/2 flex mb-3 px-1 w-full gap-1'>
                             <label htmlFor='price'>Pages</label>
-                            <input onChange={inputHandle} value={state.price} type="text" name='price' id='price' placeholder='Price' className='  autofill:shadow-[inset_0_0_0px_1000px_rgb(159,146,121)] px-4 py-2 outline-none border bg-transparent border-[#fff2df23] rounded-3xl text-[#fff2df] focus:border-[#fff2df73] overflow-auto placeholder-[#fff2df23]' />
+                            <input onChange={inputHandle} value={state.price} type="text" name='price' id='price' placeholder='Pages' className='  autofill:shadow-[inset_0_0_0px_1000px_rgb(159,146,121)] px-4 py-2 outline-none border bg-transparent border-[#fff2df23] rounded-3xl text-[#fff2df] focus:border-[#fff2df73] overflow-auto placeholder-[#fff2df23]' />
                             </div>
                             
                             {/* <div className='flex-col flex px-1 w-full gap-1'>

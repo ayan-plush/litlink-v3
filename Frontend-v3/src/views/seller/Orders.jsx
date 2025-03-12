@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Search from '../components/Search'
 import Pagination from '../Pagination'
 import { Link } from 'react-router-dom'
@@ -10,6 +10,10 @@ const Orders = () => {
     const [searchValue, setSearchValue] = useState('')
     const [perPage, setPerPage] = useState(5)
     const[show,setShow] = useState(false)
+    // const dispatch = useDispatch()
+    // useEffect(()=>{
+    //         dispatch()        
+    //     },[])
     
   return (
     <div>
@@ -25,10 +29,10 @@ const Orders = () => {
           <table className='w-full text-sm  text-left'>
             <thead className='uppercase border-b border-slate-700'>
             <tr>
-              <th scope='col' className='py-3 px-4'>Order Id.</th>
-              <th scope='col' className='py-3 px-4'>Price</th>
-              <th scope='col' className='py-3 px-4'>Payment status</th>
-              <th scope='col' className='py-3 px-4'>Order Status</th>
+              <th scope='col' className='py-3 px-4'>Id.</th>
+              <th scope='col' className='py-3 px-4'>Book</th>
+              <th scope='col' className='py-3 px-4'>Status</th>
+              <th scope='col' className='py-3 px-4'>Borrower name</th>
               <th scope='col' className='py-3 px-4'>Action</th>
             </tr>
             </thead>

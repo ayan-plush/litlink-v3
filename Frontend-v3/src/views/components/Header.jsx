@@ -80,7 +80,7 @@ const Header = () => {
                             <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffe5be]': ''} text-[2vh]`} >HOME</Link></li>
                             <li><Link to="/library" className={`${pathname === '/library' ? 'text-[#ffe5be]': ''} text-[2vh]`}>LIBRARY</Link></li>
                             <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]': ''} text-[2vh]`}>OUR PURPOSE</Link></li>
-                            <li><Link to="/blog" className={`${pathname === '/blog' ? 'text-[#ffe5be]': ''} text-[2vh]`}>BLOG</Link></li>
+                            <li><Link to="/fordev" className={`${pathname === '/fordev' ? 'text-[#ffe5be]': ''} text-[2vh]`}>FOR DEVS</Link></li>
                             <li><Link to="/contactus" className={`${pathname === '/contactus' ? 'text-[#ffe5be]': ''} text-[2vh]`}>CONTACT US</Link></li>
                         </ul>
                         <div className='flex max-md-lg:hidden justify-center items-center gap-5'>
@@ -133,7 +133,7 @@ const Header = () => {
                             <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`} >HOME</Link></li>
                             <li><Link to="/library" className={`${pathname === '/library' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>LIBRARY</Link></li>
                             <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>OUR PURPOSE</Link></li>
-                            <li><Link to="/blog" className={`${pathname === '/blog' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>BLOG</Link></li>
+                            <li><Link to="/fordev" className={`${pathname === '/fordev' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>FOR DEVS</Link></li>
                             <li><Link to="/contactus" className={`${pathname === '/contactus' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>CONTACT US</Link></li>
                         </ul>
 

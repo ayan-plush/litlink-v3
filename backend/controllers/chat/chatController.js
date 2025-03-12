@@ -43,7 +43,7 @@ class chatController{
                     const checkSeller2 = await sellerCustomerModel.findOne({$and:[
                         {
                             myId:{
-                                $eq:sellerId
+                                $eq: sellerId
                             }
                         },
                         {
@@ -188,6 +188,19 @@ class chatController{
                         messages
                     })
             }            
+        }
+        catch(error){
+            responseReturn(res,404,{error: error})
+        }
+    }
+
+    get_user_friends = async (req,res) => {
+        const {sellerId} = req.body
+        
+        try {
+            const friends = await sellerCustomerModel.findOne({myId:sellerId})
+            let newFriends = friends.myFriend
+            responseReturn(res,201,{newFriends})      
         }
         catch(error){
             responseReturn(res,404,{error: error})

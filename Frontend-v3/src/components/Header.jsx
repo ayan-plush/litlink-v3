@@ -64,7 +64,7 @@ const Header = () => {
                     </div>
                     <div className='flex group cursor-pointer justify-center items-center gap-3 text-sm '>
                         {
-                            userInfo ? <Link to='/dashboard' className='flex justify-center items-center gap-2 text-sm'><span>{userInfo?.image?<img className='h-[35px] rounded-full w-[35px] object-cover' src={userInfo?.image} alt="" />:<FaUser/>}</span><span>{userInfo?.name}</span></Link> 
+                            userInfo ? <Link to='/seller/dashboard/products' className='flex justify-center items-center gap-2 text-sm'><span>{userInfo?.image?<img className='h-[35px] rounded-full w-[35px] object-cover' src={userInfo?.image} alt="" />:<FaUser/>}</span><span>{userInfo?.name}</span></Link> 
                             : <Link to='/admin/login' className='flex justify-center items-center gap-2 text-sm'>
                             <span>admin login</span></Link>
                         }
@@ -93,9 +93,9 @@ const Header = () => {
                             <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffe5be]': ''} text-[2vh]`} >HOME</Link></li>
                             <li><Link to="/library" className={`${pathname === '/library' ? 'text-[#ffe5be]': ''} text-[2vh]`}>LIBRARY</Link></li>
                             <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]': ''} text-[2vh]`}>OUR PURPOSE</Link></li>
-                            <li><Link to="https://sahityabookclub.wordpress.com/" className={`${pathname === '/blog' ? 'text-[#ffe5be]': ''} text-[2vh]`}>BLOG</Link></li>
+                            <li><Link to="/fordev" className={`${pathname === '/fordev' ? 'text-[#ffe5be]': ''} text-[2vh]`}>FOR DEVS</Link></li>
                             {/* <li><Link to="/contactus" className={`${pathname === '/contactus' ? 'text-[#ffe5be]': ''} text-[2vh]`}>CONTACT US</Link></li> */}
-                            {userInfo?<Link to="/dashboard" className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link>:<Link to="/register" className={`${pathname === '/register' ? 'text-[#ffe5be]': ''} text-[2vh]`}>REGISTER</Link>}
+                            {userInfo?<Link to="/seller/dashboard/products" className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link>:<Link to="/register" className={`${pathname === '/register' ? 'text-[#ffe5be]': ''} text-[2vh]`}>REGISTER</Link>}
                         </ul>
                     </div>
                     <div className=' text-[#47382B] max-md-lg:hidden  max-md:lg:w-full max-md-lg:justify-center font-medium flex justify-between items-center'>    
@@ -139,7 +139,7 @@ const Header = () => {
                 <Link className='flex items-center pb-[40px]  ' to='/'> <img className='h-[40px]' src="https://litlink-frontend.onrender.com/images/LitLinkLogoLight.png" alt="" /> </Link>  
                 <div className='flex group cursor-pointer justify-between items-center gap-3 font-extralight tracking-tighter text-[2vh] uppercase '>
                         {
-                            userInfo ? <Link to='/dashboard' className='flex justify-center items-center gap-2 '><span className='text-[9px]'>{userInfo?.image?<img className='h-[35px] rounded-full w-[35px] object-cover' src={userInfo?.image} alt="" />:<FaUser/>}</span><span>{userInfo?.name}</span></Link> 
+                            userInfo ? <Link to='seller/dashboard/products' className='flex justify-center items-center gap-2 '><span className='text-[9px]'>{userInfo?.image?<img className='h-[35px] rounded-full w-[35px] object-cover' src={userInfo?.image} alt="" />:<FaUser/>}</span><span>{userInfo?.name}</span></Link> 
                             : <Link to='/login' className='flex justify-center items-center gap-2 '>
                             <span>Sign In</span></Link>
                         }
@@ -156,9 +156,9 @@ const Header = () => {
                             <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`} >HOME</Link></li>
                             <li><Link to="/library" className={`${pathname === '/library' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>LIBRARY</Link></li>
                             <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>OUR PURPOSE</Link></li>
-                            <li><Link to="https://sahityabookclub.wordpress.com/" className={`${pathname === '/blog' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>BLOG</Link></li>
+                            <li><Link to="/fordev" className={`${pathname === '/fordev' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>FOR DEVS</Link></li>
                             {/* <li><Link to="/contactus" className={`${pathname === '/contactus' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>CONTACT US</Link></li> */}
-                            {userInfo?<Link to="/dashboard" className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link>:<Link to="/register" className={`${pathname === '/register' ? 'text-[#ffe5be]': ''} text-[2vh]`}>REGISTER</Link>}
+                            {userInfo?<Link to="/seller/dashboard/products" className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link>:<Link to="/register" className={`${pathname === '/register' ? 'text-[#ffe5be]': ''} text-[2vh]`}>REGISTER</Link>}
 
                         </ul>
 
