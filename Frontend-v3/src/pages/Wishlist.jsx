@@ -105,7 +105,7 @@ const Wishlist = () => {
                                         <Rating ratings={p?.rating} />
                                     </div>
                                 </div>
-                                <span>{p.status.id===''?'Available':'Unavailable'}</span>
+                                <span>{p.status?.id===''?'Available':'Unavailable'}</span>
                             </div>
                             <FaRegWindowClose onClick={()=> delete_wishlist_product(p._id)} className='absolute hover:text-red-400 w-[20px] h-[20px] top-0 max-md:right-0 right-20'/>
                             
