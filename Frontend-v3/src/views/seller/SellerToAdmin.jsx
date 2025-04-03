@@ -58,6 +58,9 @@ const SellerToAdmin = () => {
     
     useEffect(()=>{
             socket.emit('add_user',userInfo._id,userInfo)
+            if(!adminId){
+                navigate('/seller/dashboard/chat-support/6783289d783b7c77461edb7e')
+            }
     },[])
     useEffect(()=>{
         socket.on('user_message',(msg)=>{
