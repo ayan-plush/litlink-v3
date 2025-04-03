@@ -1,18 +1,18 @@
 import { lazy } from "react";
-const Pending = lazy(()=> import("../../views/Pending"));
-const Deactive = lazy(()=> import("../../views/Deactive"));
-const OrderDetails = lazy(()=> import("../../views/seller/OrderDetails"));
-const EditProduct = lazy(()=> import("../../views/seller/EditProduct"));
-const Profile = lazy(()=> import("../../views/seller/Profile"));
-const SellerToCustomer = lazy(()=> import("../../views/seller/SellerToCustomer"));
-const SellerToAdmin = lazy(()=> import("../../views/seller/SellerToAdmin"));
-const Payments = lazy(()=> import("../../views/seller/Payments"));
-const Orders = lazy(()=> import("../../views/seller/Orders"));
-const DiscountProducts = lazy(()=> import("../../views/seller/DiscountProducts"));
-const Products = lazy(()=> import("../../views/seller/Products"));
-const AddProduct = lazy(()=> import("../../views/seller/AddProduct"));
-const SellerDashboard = lazy(()=> import("../../views/seller/SellerDashboard"));
-const Unauthorized = lazy(()=> import("../../views/Unauthorized"));
+// const Pending = lazy(()=> import("../../views/Pending"));
+// const Deactive = lazy(()=> import("../../views/Deactive"));
+// const OrderDetails = lazy(()=> import("../../views/seller/OrderDetails"));
+// const EditProduct = lazy(()=> import("../../views/seller/EditProduct"));
+// const Profile = lazy(()=> import("../../views/seller/Profile"));
+// const SellerToCustomer = lazy(()=> import("../../views/seller/SellerToCustomer"));
+// const SellerToAdmin = lazy(()=> import("../../views/seller/SellerToAdmin"));
+// const Payments = lazy(()=> import("../../views/seller/Payments"));
+// const Orders = lazy(()=> import("../../views/seller/Orders"));
+// const DiscountProducts = lazy(()=> import("../../views/seller/DiscountProducts"));
+// const Products = lazy(()=> import("../../views/seller/Products"));
+// const AddProduct = lazy(()=> import("../../views/seller/AddProduct"));
+// const SellerDashboard = lazy(()=> import("../../views/seller/SellerDashboard"));
+// const Unauthorized = lazy(()=> import("../../views/Unauthorized"));
 import Wishlist from './../../pages/Wishlist';
 
 

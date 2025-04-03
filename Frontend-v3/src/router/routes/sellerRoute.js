@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import FriendDetails from "../../views/seller/FriendDetails";
+const FriendDetails = lazy(()=> import("../../views/seller/FriendDetails"));
 const Pending = lazy(()=> import("../../views/Pending"));
 const Deactive = lazy(()=> import("../../views/Deactive"));
 const OrderDetails = lazy(()=> import("../../views/seller/OrderDetails"));
@@ -65,6 +65,12 @@ export const sellerRoutes = [
         element: <SellerToCustomer/>,
         role: 'seller',
         status : 'active'
+    },
+    {
+        path: '/seller/dashboard/chat-support/:adminId',
+        element: <SellerToAdmin/>,
+        role: 'seller',
+        visability : ['active','deactive','pending']
     },
     {
         path: '/seller/dashboard/chat-support',

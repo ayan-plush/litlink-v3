@@ -118,11 +118,7 @@ const ShopHome3 = () => {
                           </div>
           
                           <img className='pt-10 max-md:pt-30 max-md:absolute h-[500px] object-cover' src="https://res.cloudinary.com/decks92gf/image/upload/v1740911456/2-removebg-preview_wabm9b.png" alt="" />
-                          {/* <div className='h-[800px] w-[380px] '>
-                          <Spline
-                            scene="https://prod.spline.design/wEny1-ZVTTEv7-6G/scene.splinecode" 
-                          />
-                          </div> */}
+                          
           
                         </div>
           
@@ -157,11 +153,7 @@ const ShopHome3 = () => {
                           </div>
           
                           <img className='pt-10 max-md:pt-30 max-md:absolute invisible h-[500px] object-cover' src="https://res.cloudinary.com/decks92gf/image/upload/v1740911456/2-removebg-preview_wabm9b.png" alt="" />
-                          {/* <div className='h-[800px] w-[380px] '>
-                          <Spline
-                            scene="https://prod.spline.design/wEny1-ZVTTEv7-6G/scene.splinecode" 
-                          />
-                          </div> */}
+                          
                         
                         </div>
           

@@ -16,7 +16,7 @@ app.use(cors({
 
 const io = socket(server,{
     cors: {
-        origin: '*',
+        origin: ['https://litlink-frontend.onrender.com'],
         credentials: true
     }
 })
@@ -52,7 +52,7 @@ io.on('connection', (soc) => {
     })
     soc.on('send_user_message',(msg)=>{
         const user = findUser(msg.recieverId)
-
+        // console.log("this is user",user);
         if(user!==undefined){
             soc.to(user.socketId).emit('user_message',msg)
         }

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { get_user_info } from './store/Reducers/authReducer'
 import { get_category } from './store/Reducers/homeReducer'
 import axios from 'axios'
+import { get_from_wishlist } from './store/Reducers/wishlistReducer'
 
 function App ()  {
 
@@ -27,7 +28,7 @@ function App ()  {
 
 
   const dispatch = useDispatch()
-  const {token} = useSelector(state => state.auth)
+  const {token,userInfo} = useSelector(state => state.auth)
   const [allRoutes, setAllRoutes] = useState([...publicRoutes])
   useEffect(()=>{
     const routes = getRoutes()
@@ -44,6 +45,7 @@ function App ()  {
   },[token])
   useEffect(() => {
     dispatch(get_category())
+    dispatch(get_from_wishlist(userInfo?._id))
 },[])
   return <Router allRoutes = {allRoutes}/>
 }

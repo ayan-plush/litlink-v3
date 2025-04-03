@@ -6,6 +6,7 @@ import io from 'socket.io-client'
 import { add_friend, get_user_messages, messageClear, send_message } from '../../store/Reducers/chatReducer'
 import toast from 'react-hot-toast'
 import { RingLoader } from 'react-spinners'
+import { BsChatHeart } from 'react-icons/bs'
 
 // socket io has to be the last import
 const socket = io('https://litlink-backend.onrender.com')
@@ -20,27 +21,32 @@ const SellerToCustomer = () => {
     const [text,setText] = useState('')
     const [recieverMessage,setRecieverMessage]= useState('')
     const [activeUser,setActiveUser]= useState([])
+    const dispatch = useDispatch()
+    // scrolling to the bottom 1
     useEffect(() => {
         if (messagesEndRef.current) {
           messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
         }
       }, [fb_messages])
-    const dispatch = useDispatch()
+    // online users
     useEffect(()=>{
         socket.emit('add_user',userInfo._id,userInfo)
     },[]) 
+    // if sellerId changes the user is added to friend list if they arent in it 2
     useEffect(()=>{
         dispatch(add_friend({
             userId:userInfo._id,
             sellerId: sellerId || ""
          }))
     },[sellerId]) 
+    //if successmessage emit the message 3
     useEffect(()=>{
         if(successMessage){
             socket.emit('send_user_message',fb_messages[fb_messages.length-1])
             dispatch(messageClear())
         }
     },[successMessage])
+    // receiving user messages and setting active user 4
     useEffect(()=>{
         socket.on('user_message',(msg)=>{
             setRecieverMessage(msg)
@@ -73,12 +79,12 @@ const SellerToCustomer = () => {
             send()
         }
       }
-      const [loading, setLoading] = useState(true);
-          
-              setTimeout(()=>{
-                setLoading(false)
-              },5000)
-    
+    const sidebarClick = (x) => {
+        setShow(false)
+        navigate(`/seller/dashboard/chat-customer/${x}`)
+
+    }
+
 
   return (
     <div className='px-2 lg:px-7 py-5  '>
@@ -93,8 +99,9 @@ const SellerToCustomer = () => {
 
                         </div>
                         {
-                            my_friends?.map((f,i)=><div onClick={()=>navigate(`/seller/dashboard/chat-customer/${f?.friendId}`)} key={i} className={`h-[60px] my-2 bg-[#887c6664] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-md cursor-pointer`}>
+                            my_friends?.map((f,i)=><div onClick={()=>sidebarClick(f?.friendId)} key={i} className={`h-[60px] my-2 bg-[#887c6664] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-md cursor-pointer`}>
                             <div className='relative'>
+                                {/* navigate(`/seller/dashboard/chat-customer/${}`) */}
                                 <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] object-cover border-2 max-w-[38px] p-[2px]' src={f.image} alt="" />
                                 {
                                     activeUser.some(c=>c.userId===f.friendId) && <div className='w-[10px] h-[10px] bg-green-500 rounded-full absolute right-0 bottom-0'></div>
@@ -271,11 +278,14 @@ const SellerToCustomer = () => {
                     
 
                 </div>:
-                <div className='justify-center relative w-full md:w-[calc(100%-200px)] md:pl-4 m-3 rounded-md bg-[#ffffff0d] items-center  flex text-white'>
+                <div className='justify-center relative w-full md:w-[calc(100%-200px)] md:pl-4 m-3 rounded-md bg-[#27211d] items-center  flex text-white'>
                     <div className='w-[35px] flex md:hidden h-[35px] rounded-sm absolute -top-2 -right-3 text-black bg-[#605848] border-2 border-[#312C23] hover:border-[#605848] justify-center items-center cursor-pointer '>
                     <span onClick={()=> setShow(!show)} ><FaList/></span>
                     </div>
-                        Start a chat</div>
+                    <div className='flex flex-col items-center justify-center'>
+                                            <BsChatHeart className='h-[200px] w-[200px] text-[#ffffff71]' /> <span className='text-3xl text-[#ffffff71] pt-3 font-[impacted]'>START A CHAT</span> 
+                    </div>
+                    </div>
                 
                 }
 

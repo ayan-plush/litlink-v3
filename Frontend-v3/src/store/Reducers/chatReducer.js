@@ -16,11 +16,39 @@ export const add_friend = createAsyncThunk(
     }
 )
 
+export const add_admin = createAsyncThunk(
+    'chat/add_admin',
+    async(info,{rejectWithValue,fulfillWithValue}) => {
+        try {            
+           const {data} = await api.post('/chat/user/add-user-admin',info,{withCredentials: true})
+            
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
 export const send_message = createAsyncThunk(
     'chat/send_message',
     async(info,{rejectWithValue,fulfillWithValue}) => {
         try {            
            const {data} = await api.post('/chat/user/send-message-to-user',info,{withCredentials: true})
+            
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
+export const send_message_admin = createAsyncThunk(
+    'chat/send_message_admin',
+    async(info,{rejectWithValue,fulfillWithValue}) => {
+        try {            
+           const {data} = await api.post('/chat/user/send-message-to-admin',info,{withCredentials: true})
             
             return fulfillWithValue(data)
         }
@@ -44,11 +72,39 @@ export const get_user_messages = createAsyncThunk(
     }
 )
 
+export const get_admin_messages = createAsyncThunk(
+    'chat/get_admin_messages',
+    async(info,{rejectWithValue,fulfillWithValue}) => {
+        try {            
+           const {data} = await api.post('/chat/user/get-admin-messages',info,{withCredentials: true})
+            
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
 export const get_friends = createAsyncThunk(
     'chat/get_user_friends',
     async(info,{rejectWithValue,fulfillWithValue}) => {
         try {            
            const {data} = await api.post('/chat/user/get-friends',info,{withCredentials: true})
+            
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
+export const get_admins = createAsyncThunk(
+    'chat/get_user_admins',
+    async(info,{rejectWithValue,fulfillWithValue}) => {
+        try {            
+           const {data} = await api.post('/chat/user/get-admin-messages',info,{withCredentials: true})
             
             return fulfillWithValue(data)
         }
@@ -68,13 +124,23 @@ export const chatReducer = createSlice({
         errorMessage: '',
         loader: false,
         my_friends: [],
+        my_admins: [],
+        admin_messages:[],
+        current_admin:"",
+        current_seller:"",
         fb_messages:[],
-        current_friend:""
+        current_friend:"",
+        adminsuccessMessage: '',
+        adminerrorMessage: '',
     },
     reducers : {
         messageClear : (state,_)=>{
             state.errorMessage=""
             state.successMessage=""
+        },
+        adminmessageClear : (state,_)=>{
+            state.adminerrorMessage=""
+            state.adminsuccessMessage=""
         }
 
     },
@@ -85,6 +151,11 @@ export const chatReducer = createSlice({
         state.current_friend = payload.currentFriend;
         state.fb_messages = payload.messages
         })
+        .addCase(add_admin.fulfilled, (state,{payload})=>{
+            state.my_admins = payload.MyFriends_admin;
+            state.current_admin = payload.currentFriend_admin;
+            state.admin_messages = payload.messages
+        })
         .addCase(get_friends.fulfilled, (state,{payload})=>{
             state.my_friends = payload.newFriends;
         })
@@ -93,10 +164,18 @@ export const chatReducer = createSlice({
         state.fb_messages =[...state.fb_messages,payload.message] ;
         state.successMessage = 'Message Sent! 💌'
         })
+        .addCase(send_message_admin.fulfilled, (state,{payload})=>{
+            state.my_admins = payload.newFriends;
+            state.admin_messages =[...state.admin_messages,payload.message] ;
+            state.adminsuccessMessage = 'Message Sent! 💌'
+            })
         .addCase(get_user_messages.fulfilled, (state,{payload})=>{
             state.fb_messages = payload.messages
         })
+        .addCase(get_admin_messages.fulfilled, (state,{payload})=>{
+            state.admin_messages = payload.messages
+        })
     }
 })
-export const {messageClear} = chatReducer.actions
+export const {messageClear,adminmessageClear} = chatReducer.actions
 export default chatReducer.reducer

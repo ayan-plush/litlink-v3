@@ -1,3 +1,6 @@
+const adminModel = require("../../models/adminModel")
+const sellerAdminMessageModel = require("../../models/chat/sellerAdminMessageModel")
+const sellerAdminModel = require("../../models/chat/sellerAdminModel")
 const sellerCustomerMessageModel = require("../../models/chat/sellerCustomerMessageModel")
 const sellerCustomerModel = require("../../models/chat/sellerCustomerModel")
 const sellerModel = require("../../models/sellerModel")
@@ -107,6 +110,118 @@ class chatController{
         }
     }
 
+    add_user_admin = async (req,res) => {
+        const {userId,adminId} = req.body
+        
+        try {
+            if(adminId){
+                const user = await sellerModel.findById(userId)
+                const admin = await adminModel.findById(adminId)
+                const checkUser = await sellerAdminModel.findOne({myId: {$eq: userId}})
+                if(!checkUser){
+                    await sellerAdminModel.create({myId: userId})
+                }
+                const checkAdmin = await sellerAdminModel.findOne({myId: {$eq: adminId}})
+                if(!checkAdmin){
+                    await sellerAdminModel.create({myId: adminId})
+                }
+
+                    const checkSeller = await sellerAdminModel.findOne({$and:[
+                        {
+                            myId:{
+                                $eq: userId
+                            }
+                        },
+                        {
+                            myFriend: {
+                                $elemMatch : {
+                                    friendId : adminId
+                                }
+                            }
+                        }
+                    ]}
+                    )
+                    if(!checkSeller){
+                        await sellerAdminModel.updateOne({
+                            myId: userId
+                        },
+                        {
+                            $push:  {
+                                myFriend:{
+                                    friendId : adminId,
+                                    name: admin.name,
+                                    image: admin.image
+                                }
+                            }
+                        })
+                    }
+                    const checkSeller2 = await sellerAdminModel.findOne({$and:[
+                        {
+                            myId:{
+                                $eq: adminId
+                            }
+                        },
+                        {
+                            myFriend: {
+                                $elemMatch : {
+                                    friendId : userId
+                                }
+                            }
+                        }
+                    ]}
+                    )
+                    if(!checkSeller2){
+                        await sellerAdminModel.updateOne({
+                            myId: adminId
+                        },
+                        {
+                            $push:  {
+                                myFriend:{
+                                    friendId : userId,
+                                    name: user.name,
+                                    image: user.image
+                                }
+                            }
+                        })
+                    }
+                    const messages = await sellerAdminMessageModel.find({
+                        $or: [
+                            {
+                                $and: [{
+                                    recieverId: {$eq: adminId}
+                                },{
+                                    senderId: {$eq: userId}
+                                }]
+                            },{
+                                $and: [{
+                                    recieverId: {$eq: userId}
+                                },{
+                                    senderId: {$eq: adminId}
+                                }]
+                            }
+                        ]
+                    })
+                    const myFriends = await sellerAdminModel.findOne({myId: {$eq: userId}})
+                    const currentFriend_admin = myFriends.myFriend.find(s=>s.friendId===adminId)
+                    responseReturn(res,200,{
+                        MyFriends_admin: myFriends.myFriend,
+                        currentFriend_admin,
+                        messages
+                    })
+            }
+            else {
+                const myFriends = await sellerAdminModel.findOne({myId: {$eq: userId}})
+                responseReturn(res,200,{
+                    MyFriends_admin: myFriends.myFriend
+                })
+            }
+            
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+
     user_message_add = async (req,res) => {
         const {userId,sellerId,name,text} = req.body
         try {
@@ -159,6 +274,60 @@ class chatController{
         }
     }
 
+    admin_message_add = async (req,res) => {
+        const {userId,adminId,name,text} = req.body
+        // console.log("reached here ",text)
+        try {
+            const message = await sellerAdminMessageModel.create({
+                senderId: userId,
+                senderName: name,
+                recieverId: adminId, //here will be adminId
+                message:text
+            })
+            const data = await sellerAdminModel.findOne({myId:userId})
+            let myFriends = data.myFriend
+            let index = myFriends.findIndex(f=>f.friendId===adminId)
+            while(index>0){
+                let temp = myFriends[index]
+                myFriends[index]= myFriends[index-1]
+                myFriends[index-1]=temp
+                index--
+            }
+            await sellerAdminModel.updateOne(
+                {
+                    myId: userId
+                },
+                {
+                    myFriend:myFriends
+                }
+            )
+            const data1 = await sellerAdminModel.findOne({myId:adminId})
+            let myFriends1 = data.myFriend
+            let index1 = myFriends.findIndex(f=>f.friendId===userId)
+            while(index1>0){
+                let temp = myFriends[index1]
+                myFriends[index1]= myFriends[index1-1]
+                myFriends[index1-1]=temp
+                index1--
+            }
+            await sellerAdminModel.updateOne(
+                {
+                    myId: adminId
+                },
+                {
+                    myFriend:myFriends
+                }
+            )
+            const friends = await sellerAdminModel.findOne({myId:userId})
+            let newFriends = friends.myFriend
+            // console.log("reached here ",newFriends)
+            responseReturn(res,201,{message,newFriends})
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     get_user_messages = async (req,res) => {
         const {userId,sellerId} = req.body
         
@@ -194,6 +363,40 @@ class chatController{
         }
     }
 
+    get_admin_messages = async (req,res) => {
+        const {userId,sellerId} = req.body
+        try {
+            if(sellerId!==''){
+                const seller = await adminModel.findById(sellerId)
+                const user = await sellerModel.findById(userId)
+                    
+                    const messages = await sellerAdminMessageModel.find({
+                        $or: [
+                            {
+                                $and: [{
+                                    recieverId: {$eq: sellerId}
+                                },{
+                                    senderId: {$eq: userId}
+                                }]
+                            },{
+                                $and: [{
+                                    recieverId: {$eq: userId}
+                                },{
+                                    senderId: {$eq: sellerId}
+                                }]
+                            }
+                        ]
+                    })
+                    responseReturn(res,200,{
+                        messages
+                    })
+            }            
+        }
+        catch(error){
+            responseReturn(res,404,{error: error})
+        }
+    }
+
     get_user_friends = async (req,res) => {
         const {sellerId} = req.body
         
@@ -201,6 +404,18 @@ class chatController{
             const friends = await sellerCustomerModel.findOne({myId:sellerId})
             let newFriends = friends.myFriend
             responseReturn(res,201,{newFriends})      
+        }
+        catch(error){
+            responseReturn(res,404,{error: error})
+        }
+    }
+    get_user_admins = async (req,res) => {
+        const {sellerId} = req.body
+        
+        try {
+            const friends = await sellerAdminModel.findOne({myId:sellerId})
+            let newAdmins = friends.myFriend
+            responseReturn(res,201,{newAdmins})      
         }
         catch(error){
             responseReturn(res,404,{error: error})
