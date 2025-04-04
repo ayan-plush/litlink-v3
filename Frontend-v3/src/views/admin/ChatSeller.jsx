@@ -444,7 +444,7 @@ const ChatSeller = () => {
                     <span onClick={()=> setShow(!show)} ><FaList/></span>
                     </div>
                     <div className='flex flex-col items-center justify-center'>
-                                            <BsChatHeart className='h-[200px] w-[200px] text-[#ffffff71]' /> <span className='text-3xl text-[#ffffff71] pt-3 font-[impacted]'>START A CHAT</span> 
+                                            <BsChatHeart className='h-[200px] w-[200px] text-[#ffe5be7a]' /> <span className='text-3xl text-[#ffe5be7a] pt-3 font-[impacted]'>START A CHAT</span> 
                     </div>
                     </div>
                 

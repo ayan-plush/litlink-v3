@@ -9,6 +9,7 @@ import { PropagateLoader } from 'react-spinners'
 import { useDispatch, useSelector } from 'react-redux';
 import { BiLogOutCircle } from 'react-icons/bi';
 import { logout } from '../store/Reducers/authReducer';
+import { LuMessageSquareMore } from "react-icons/lu";
 
 
 const Header = () => {
@@ -23,6 +24,7 @@ const Header = () => {
     const {pathname} = useLocation()
     const [showSidebar,setShowSidebar] = useState(false)
     const [categoryShow,setCategoryShow] = useState(false)
+    const [drop,setDrop] = useState(false)
     const [searchValue,setSearchValue] = useState('')
     const [category,setCategory] = useState('')
     const loader = false
@@ -79,7 +81,7 @@ const Header = () => {
       {/* div part 1 */}
       <div className="header-top  z-30  "> 
         <div className='px-5'>
-            <div className='h-[80px]  max-md:h-[50px] max-md-lg:h-[100px] overflow-hidden flex justify-between items-center flex-wrap'>
+            <div className='h-[80px]  max-md:h-[50px] max-md-lg:h-[100px]  flex justify-between items-center flex-wrap'>
                 <div className='max-md-lg:w-full md-lg:w-full md-lg:flex md-lg:justify-between  '>
                     <div className='flex justify-between items-center'>
                         <Link className='flex items-center ' to='/'> <img className='h-[40px]' src="https://litlink-frontend.onrender.com/images/LitLinkLogo.png" alt="" /> </Link>
@@ -88,33 +90,56 @@ const Header = () => {
                             <span><FaList/></span>
                         </div>
                     </div> 
-                    <div className=' *: text-[#47382B] max-md-lg:hidden  max-md:lg:w-full max-md-lg:justify-center font-medium flex justify-between items-center'>
+                    <div className=' *: text-[#47382B] max-md-lg:hidden  max-md:lg:w-full max-md-lg:justify-center font-medium flex justify-between items-end'>
                         <ul className='flex justify-start items-start gap-8 font-medium uppercase text-md max-md-lg:hidden' >
                             <li><Link to="/" className={`${pathname === '/' ? 'text-[#ffe5be]': ''} text-[2vh]`} >HOME</Link></li>
                             <li><Link to="/library" className={`${pathname === '/library' ? 'text-[#ffe5be]': ''} text-[2vh]`}>LIBRARY</Link></li>
                             <li><Link to="/aboutus" className={`${pathname === '/aboutus' ? 'text-[#ffe5be]': ''} text-[2vh]`}>OUR PURPOSE</Link></li>
                             <li><Link to="/fordev" className={`${pathname === '/fordev' ? 'text-[#ffe5be]': ''} text-[2vh]`}>FOR DEVS</Link></li>
                             {/* <li><Link to="/contactus" className={`${pathname === '/contactus' ? 'text-[#ffe5be]': ''} text-[2vh]`}>CONTACT US</Link></li> */}
-                            {userInfo?<Link to="/seller/dashboard/products" className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link>:<Link to="/register" className={`${pathname === '/register' ? 'text-[#ffe5be]': ''} text-[2vh]`}>REGISTER</Link>}
+                            {/* {userInfo? <div className='flex gap-1 relative items-center'><Link to="/seller/dashboard/products" className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link><IoIosArrowDown className='cursor-pointer' onClick={()=>setDrop(!drop)} /> <div className={`absolute ${drop?'':'hidden'} w-full flex flex-col gap-2 justify-start top-[25px]  bg-[#312C23] font-stretch-condensed text-[#FBF1D7] text-xs font-extralight rounded-b-md py-2`}> <span className='h-full py-1 w-full px-2 cursor-pointer hover:bg-[#3a3429]'>add books</span> <span className='h-full py-1 w-full px-2 cursor-pointer hover:bg-[#3a3429]'>my books</span> <span className='h-full py-1 cursor-pointer w-full px-2 hover:bg-[#3a3429]'>profile</span> </div> </div> */}
+                            {userInfo? <div className='flex gap-1 relative items-center'><Link to={userInfo.role=='seller'?`/seller/dashboard/products`:`/admin/dashboard`} className={`${pathname === '/dashboard' ? 'text-[#ffe5be]': ''} text-[2vh]`}>DASHBOARD</Link> </div>
+
+                            :<Link to="/register" className={`${pathname === '/register' ? 'text-[#ffe5be]': ''} text-[2vh]`}>REGISTER</Link>}
                         </ul>
                     </div>
-                    <div className=' text-[#47382B] max-md-lg:hidden  max-md:lg:w-full max-md-lg:justify-center font-medium flex justify-between items-center'>    
-                        {userInfo?<div className='flex max-md-lg:hidden justify-center items-center gap-5'>
-                            <div className='flex justify-center w-[50px] gap-5'>
+                    <div className=' text-[#47382B] max-md-lg:hidden pr-[80px] max-md:lg:w-full  max-md-lg:justify-center font-medium flex justify-between items-center'>    
+                        {userInfo?<div className='flex max-md-lg:hidden justify-center  items-center gap-5'>
+                            {/* <div className='flex flex-col items-center justify-center w-[50px]'>
                                 <div className='relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#312C23]'>
                                     <Link to='/wishlist' className='text-[#ffe5be]'><FaHeart/></Link>
                                     {wishlist_product_count===0?'':<div className='bg-indigo-500 w-[15px] h-[15px] absolute rounded-full text-xs font-extralight text-white flex justify-center items-center -top-[3px] -right-[5px]'>{wishlist_product_count}</div>}
-                                    </div>                                
+                                </div>                                
                             </div>
                             <div className='flex justify-center w-[50px] gap-5'>
                                 <div className='relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#312C23]'>
-                                    <Link to={`/seller/dashboard/chat-customer`} className='text-[#ffe5be]'><FaFacebookMessenger/></Link>
-                                    {/* <div className='bg-indigo-500 w-[20px] h-[20px] absolute rounded-full text-xs font-extralight text-white flex justify-center items-center -top-[3px] -right-[5px]'>{wishlist_count}</div> */}
+                                    <Link to={userInfo.role=='seller'?`/seller/dashboard/chat-customer`:'/admin/dashboard/chat-seller'} className='text-[#ffe5be]'><LuMessageSquareMore /></Link>
                                 </div>                                
                             </div>
                             <div className='flex justify-center w-[50px] gap-5'>
                                 <div onClick={()=>dispatch(logout({navigate,role}))} className='relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#312C23]'>
                                     <span className='text-[#ffe5be]  '><RiLogoutCircleLine/></span>
+                                </div>                                
+                            </div> */}
+                            <div className='flex flex-col items-center justify-center w-[50px]'>
+                                <div className='relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#312C23]'>
+                                    <Link to='/wishlist' className='text-[#ffe5be]'><FaHeart/></Link>
+                                    {wishlist_product_count===0?'':<div className='bg-indigo-500 w-[15px] h-[15px] absolute rounded-full text-xs font-extralight text-white flex justify-center items-center -top-[3px] -right-[5px]'>{wishlist_product_count}</div>}
+                                </div>                                
+                            </div>
+                            <div className='flex justify-center w-[50px] gap-5'>
+                                <div onClick={()=>setDrop(!drop)} className='relative flex justify-center items-center cursor-pointer w-[35px] h-[35px] rounded-full bg-[#312C23]'>
+                                    <span className='text-[#ffe5be]  '><FaUser/></span>
+                                    <IoIosArrowDown className='absolute rounded-full bg-[#312C23] -bottom-1 -right-1.5 text-[#ffe5be]'/>                                    
+                                    <div className={`absolute flex flex-col text-[#fff] justify-start  rounded-b-xl items-start p-2 gap-3 top-[58px] -right-1  w-[180px] bg-[#00000072] ${drop?'':'hidden'} `}>
+                                        <div className='uppercase text-[16px]  w-full font-bold'>{userInfo?.name}</div>
+                                        <Link to='/seller/dashboard/add-product' className=' text-[15px]  w-full font-light '>Add Books</Link>
+                                        <Link to='/seller/dashboard/products' className=' text-[15px]  w-full font-light'>My Books</Link>
+                                        <Link to='/seller/dashboard/chat-customer' className=' text-[15px] w-full font-light'>Chat with Users</Link>
+                                        <Link to='/seller/dashboard/chat-support'  className=' text-[15px] w-full font-light border-b-1'>Chat with Support</Link>
+                                        <Link to='/seller/dashboard/profile' className=' text-[15px]  w-full font-light'>Profile</Link>
+                                        <div onClick={()=>dispatch(logout({navigate,role}))} className=' text-[15px] w-full font-light'>Sign Out</div>
+                                    </div>
                                 </div>                                
                             </div>
                         </div>:<Link to="/login" className={`${pathname === '/login' ? 'text-[#ffe5be]': ''} pr-5 text-[2vh]`} >LOG IN</Link>}

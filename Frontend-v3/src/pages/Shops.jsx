@@ -230,7 +230,7 @@ const Shops = () => {
            <section className=' bg-[url("https://litlink-frontend.onrender.com/images/banner/library.jpg")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
             <div className='absolute left-0 top-0 w-full h-full bg-[#2422228a]'>
                 <div className='w-[85%] max-md:w-[80%] max-sm:w-[90%] max-lg:w-[90%] h-full mx-auto'>
-                    <div className='flex flex-col justify-center gap-1 items-center h-full w-full text-white'>
+                    <div className='flex flex-col justify-center gap-1 items-center h-full w-full text-[#ffe5be]'>
                 <h2 className='text-3xl font-bold'>Library Page</h2>
                 <div className='flex justify-center items-center gap-2 text-2xl w-full'>
                         <Link to='/'>Home</Link>
