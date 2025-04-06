@@ -9,6 +9,8 @@ export const add_product = createAsyncThunk(
         
         
         try {
+            const accessToken = localStorage.getItem('accessToken')
+            product = { ...product, accessToken }
            const {data} = await api.post('/product-add',product,{withCredentials: true})
            
             return fulfillWithValue(data)
@@ -54,7 +56,9 @@ export const get_product = createAsyncThunk(
 export const update_product = createAsyncThunk(
     'product/update_product',
     async(product,{rejectWithValue,fulfillWithValue}) => {        
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            product = { ...product, accessToken }            
            const {data} = await api.post(`/product-update`,product,{withCredentials: true})           
             return fulfillWithValue(data)
         }
@@ -68,9 +72,11 @@ export const update_product = createAsyncThunk(
 export const update_product_image = createAsyncThunk(
     'product/update_product_image',
     async({oldImage,newImage,productId},{rejectWithValue,fulfillWithValue}) => {        
-        try {         
+        try {
+            const accessToken = localStorage.getItem('accessToken')
             const formData = new FormData()
             formData.append('oldImage', oldImage)
+            formData.append(accessToken)
             formData.append('newImage', newImage) 
             formData.append('productId', productId) 
            const {data} = await api.post(`/product-image-update`,formData,{withCredentials: true})           

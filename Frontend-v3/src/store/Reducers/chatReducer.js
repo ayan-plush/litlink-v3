@@ -5,7 +5,9 @@ import {jwtDecode} from 'jwt-decode'
 export const add_friend = createAsyncThunk(
     'chat/add_friend',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }
            const {data} = await api.post('/chat/user/add-user-friend',info,{withCredentials: true})
             
             return fulfillWithValue(data)
@@ -19,7 +21,9 @@ export const add_friend = createAsyncThunk(
 export const add_admin = createAsyncThunk(
     'chat/add_admin',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }            
            const {data} = await api.post('/chat/user/add-user-admin',info,{withCredentials: true})
             
             return fulfillWithValue(data)
@@ -33,7 +37,9 @@ export const add_admin = createAsyncThunk(
 export const send_message = createAsyncThunk(
     'chat/send_message',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }            
            const {data} = await api.post('/chat/user/send-message-to-user',info,{withCredentials: true})
             
             return fulfillWithValue(data)
@@ -47,7 +53,9 @@ export const send_message = createAsyncThunk(
 export const send_message_admin = createAsyncThunk(
     'chat/send_message_admin',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }            
            const {data} = await api.post('/chat/user/send-message-to-admin',info,{withCredentials: true})
             
             return fulfillWithValue(data)
@@ -61,7 +69,9 @@ export const send_message_admin = createAsyncThunk(
 export const get_user_messages = createAsyncThunk(
     'chat/get_user_messages',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }            
            const {data} = await api.post('/chat/user/get-messages',info,{withCredentials: true})
             
             return fulfillWithValue(data)
@@ -75,7 +85,9 @@ export const get_user_messages = createAsyncThunk(
 export const get_admin_messages = createAsyncThunk(
     'chat/get_admin_messages',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }            
            const {data} = await api.post('/chat/user/get-admin-messages',info,{withCredentials: true})
             
             return fulfillWithValue(data)
@@ -89,7 +101,9 @@ export const get_admin_messages = createAsyncThunk(
 export const get_friends = createAsyncThunk(
     'chat/get_user_friends',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }            
            const {data} = await api.post('/chat/user/get-friends',info,{withCredentials: true})
             
             return fulfillWithValue(data)
@@ -103,7 +117,9 @@ export const get_friends = createAsyncThunk(
 export const get_admins = createAsyncThunk(
     'chat/get_user_admins',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        try {            
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }            
            const {data} = await api.post('/chat/user/get-admin-messages',info,{withCredentials: true})
             
             return fulfillWithValue(data)
