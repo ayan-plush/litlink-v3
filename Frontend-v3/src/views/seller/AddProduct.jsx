@@ -177,6 +177,7 @@ const AddProduct = () => {
 
     const add = (e) => {
         e.preventDefault()
+        const accessToken = localStorage.getItem('accessToken')
         const formData = new FormData()
         formData.append('name',state.name)
         formData.append('description',state.description)
@@ -187,6 +188,7 @@ const AddProduct = () => {
         formData.append('shopName',userInfo?.name)
         formData.append('category',category)
         formData.append('sellerId',userInfo?._id)
+        formData.append('accessToken',accessToken)
         for (let i = 0; i < images.length; i++) {
             
             formData.append('images',images[i])

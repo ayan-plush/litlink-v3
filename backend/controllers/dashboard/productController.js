@@ -1,4 +1,5 @@
 const formidable = require("formidable")
+const jwt = require("jsonwebtoken");
 const { responseReturn } = require("../../utils/response")
 const { default: slugify } = require("slugify")
 const productModel = require("../../models/productModel")
@@ -12,8 +13,14 @@ class productControllers{
     add_product = async (req,res) => {
         const form = formidable({multiples:true})
         form.parse(req,async(err,field,files)=>{
-            let {name,category,description,stock,price,tags,sellerId,shopName,author} = field
-            const {images} = files
+            let {name,category,description,stock,price,tags,sellerId,shopName,author,accessToken} = field
+            const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)
+            if(!accessToken||deCodeToken.id!==sellerId){
+                responseReturn(res,409,{message: 'unauthorized'})
+                return;
+            }
+            else{
+                const {images} = files
             const slug = slugify(name).toLowerCase()
             cloudinary.config({
                 cloud_name: process.env.cloud_name,
@@ -52,6 +59,7 @@ class productControllers{
             } catch (error) {
                 responseReturn(res,500,{error: error.message})
                 
+            }
             }
         })     
        
@@ -112,6 +120,7 @@ class productControllers{
 
     update_product = async (req,res) => {
         const {name,description,category,status,stock,tags,price,shopName,author,productId,lenderId} = req.body
+        
         const slug = slugify(name).toLowerCase()
 
         try {
@@ -184,43 +193,51 @@ class productControllers{
 
         const form = formidable({multiples:true})
         form.parse(req,async(err,field,files)=>{
-            const {oldImage,productId} = field
-            const {newImage} = files
-            if (err) {
-                responseReturn(res,400,{error: error.message})
+            const {oldImage,productId,accessToken,sellerId} = field
+            const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)
+            if(!sellerId||!accessToken||deCodeToken.id!=sellerId){
+                responseReturn(res,404,{error: 'unauthorized'})
             }
-            else {
-                try {
-
-                    cloudinary.config({
-                        cloud_name: process.env.cloud_name,
-                        api_key: process.env.api_key,
-                        api_secret: process.env.api_secret,
-                        secure: true
-                    })
-
-                    const result = await cloudinary.uploader.upload(newImage.filepath,{folder:'products'})
-
-                    if (result) {
-                        let {images} = await productModel.findById(productId)
-                        const index = images.findIndex(img => img == oldImage)
-                        images[index] = result.url
-                        await productModel.findByIdAndUpdate(productId,{images})
-                        const product = await productModel.findById(productId)
-                        const publicId =  extractPublicId(oldImage)                         
-                        await cloudinary.uploader.destroy(publicId)
-                        responseReturn(res,200,{product,message: 'Image Updated Successfully'})
+            else{
+                const {newImage} = files
+                if (err) {
+                    responseReturn(res,400,{error: error.message})
+                }
+                else {
+                    try {
+    
+                        cloudinary.config({
+                            cloud_name: process.env.cloud_name,
+                            api_key: process.env.api_key,
+                            api_secret: process.env.api_secret,
+                            secure: true
+                        })
+    
+                        const result = await cloudinary.uploader.upload(newImage.filepath,{folder:'products'})
+    
+                        if (result) {
+                            let {images} = await productModel.findById(productId)
+                            const index = images.findIndex(img => img == oldImage)
+                            images[index] = result.url
+                            await productModel.findByIdAndUpdate(productId,{images})
+                            const product = await productModel.findById(productId)
+                            const publicId =  extractPublicId(oldImage)                         
+                            await cloudinary.uploader.destroy(publicId)
+                            responseReturn(res,200,{product,message: 'Image Updated Successfully'})
+                        
+                        } else {
+                            responseReturn(res,404,{error: "Image Upload Failed"})
+                        }
                     
-                    } else {
-                        responseReturn(res,404,{error: "Image Upload Failed"})
+                        
+                    } catch (error) {
+                        responseReturn(res,500,{error: error.message})
+                        
                     }
-                
-                    
-                } catch (error) {
-                    responseReturn(res,500,{error: error.message})
-                    
                 }
             }
+            
+            
             
             
         })  

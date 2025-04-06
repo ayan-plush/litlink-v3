@@ -3,6 +3,8 @@ const categoryModel = require("../../models/categoryModel")
 const productModel = require("../../models/productModel")
 const queryProducts = require("../../utils/queryProducts")
 const sellerModel = require("../../models/sellerModel")
+const jwt = require("jsonwebtoken");
+
 
 
 class homeControllers{
@@ -101,18 +103,25 @@ class homeControllers{
     }
 
     get_friend_details = async (req,res) => {
-        const {sellerId} = req.params 
+        const {sellerId,accessToken} = req.params
+        const deCodeToken = await jwt.verify(accessToken,process.env.SECRET) 
         try {
-            const seller = await sellerModel.findById(sellerId)
-            const image = seller.image
-            const name = seller.name
-            const books = await productModel.find({sellerId: sellerId}).sort({name: 1})
-            const info = {
-                image,
-                name,
-                books
+            if(!accessToken||deCodeToken.id!=sellerId){
+                responseReturn(res,404,{error:'unauthorized'})
             }
-            responseReturn(res,200,{info})            
+            else{
+                const seller = await sellerModel.findById(sellerId)
+                const image = seller.image
+                const name = seller.name
+                const books = await productModel.find({sellerId: sellerId}).sort({name: 1})
+                const info = {
+                    image,
+                    name,
+                    books
+                }
+                responseReturn(res,200,{info})
+            }
+                        
             
         } catch (error) {
             responseReturn(res,404,{error:error.message})

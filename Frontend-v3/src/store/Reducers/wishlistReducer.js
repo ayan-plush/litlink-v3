@@ -21,7 +21,8 @@ export const add_to_wishlist = createAsyncThunk(
 export const remove_from_wishlist = createAsyncThunk(
     'wishlist/remove_from_wishlist',
     async(info,{rejectWithValue,fulfillWithValue}) => {
-        
+        const accessToken = localStorage.getItem('accessToken')
+        info = { ...info, accessToken }
         try {
            const {data} = await api.post('/wishlist/product/delete-from-wishlist',info,{withCredentials: true})
             return fulfillWithValue(data)
@@ -37,7 +38,8 @@ export const get_from_wishlist = createAsyncThunk(
     async(userId,{rejectWithValue,fulfillWithValue}) => {
 
         try {
-           const {data} = await api.get(`/wishlist/product/get-wishlist/${userId}`,{withCredentials: true})
+            const accessToken = localStorage.getItem('accessToken')
+           const {data} = await api.post(`/wishlist/product/get-wishlist/${userId}`,{accessToken},{withCredentials: true})
             return fulfillWithValue(data)
         }
         catch(error) {

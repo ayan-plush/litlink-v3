@@ -3,6 +3,8 @@ const { responseReturn } = require("../../utils/response")
 const { default: slugify } = require("slugify")
 const categoryModel = require("../../models/categoryModel")
 const cloudinary = require('cloudinary').v2
+const jwt = require("jsonwebtoken");
+
 
 class categoryControllers{
     add_category = async (req,res) => {
@@ -12,7 +14,26 @@ class categoryControllers{
                 responseReturn(res,404, {error:'something went wrong'})
             }
             else {
-                let {name} = fields
+                let {name,accessToken} = fields
+                if(!accessToken){
+                    return res.status(409).json({error:'Please login first'})
+                }
+                else{
+                    try{
+                        const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)
+                        req.role = deCodeToken.role
+                        req.id = deCodeToken.id
+                        if(deCodeToken.role==='admin'){
+                        }
+                        else{
+                            return res.status(409).json({error:'Action unauthorized'})
+                        }
+                        
+                    }
+                    catch(error){
+                        return res.status(409).json({error:'Please login first'})
+                    }
+                    }
                 let {image} = files
                 const slug = slugify(name).toLowerCase()
                 const getCategory = await categoryModel.findOne({slug})

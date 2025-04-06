@@ -12,7 +12,7 @@ export const get_seller_request = createAsyncThunk(
         
         try {
             const accessToken = localStorage.getItem('accessToken')            
-           const {data} = await api.get(`/sellers-request-get?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,accessToken,{withCredentials: true})
+           const {data} = await api.post(`/sellers-request-get?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,{accessToken},{withCredentials: true})
             return fulfillWithValue(data)
         }
         catch(error) {
@@ -26,8 +26,9 @@ export const get_sellers = createAsyncThunk(
     async({perPage,page,searchValue},{rejectWithValue,fulfillWithValue}) => {              
         
         try { 
-            const accessToken = localStorage.getItem('accessToken')           
-           const {data} = await api.get(`/sellers-get?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,accessToken,{withCredentials: true})
+           const accessToken = localStorage.getItem('accessToken')
+           const info = {accessToken}           
+           const {data} = await api.post(`/sellers-get?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,info,{withCredentials: true})
             return fulfillWithValue(data)
         }
         catch(error) {
@@ -41,8 +42,9 @@ export const get_seller = createAsyncThunk(
     async(sellerId,{rejectWithValue,fulfillWithValue}) => {              
         
         try {
-            const accessToken = localStorage.getItem('accessToken')            
-           const {data} = await api.get(`/seller-get/${sellerId}`,accessToken,{withCredentials: true})
+            const accessToken = localStorage.getItem('accessToken')
+           const info = {accessToken}          
+           const {data} = await api.post(`/seller-get/${sellerId}`,info,{withCredentials: true})
             return fulfillWithValue(data)
         }
         catch(error) {

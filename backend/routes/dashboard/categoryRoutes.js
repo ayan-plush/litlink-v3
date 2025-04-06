@@ -1,5 +1,5 @@
 const categoryController = require('../../controllers/dashboard/categoryController')
-const { authMiddleware, isAdmin } = require('../../middlewares/authMiddleware');
+const { authMiddleware, isAdmin,isAdminForm } = require('../../middlewares/authMiddleware');
 
 const router = require('express').Router()
 

@@ -111,7 +111,8 @@ const EditProduct = () => {
             dispatch(update_product_image({
                 oldImage: img,
                 newImage: files[0],
-                productId: productId
+                productId: productId,
+                sellerId: userInfo?._id
             }))
         }
         
@@ -231,7 +232,8 @@ const EditProduct = () => {
             status: status,
             shopName: userInfo.name,
             tags: tags,
-            lenderId: userInfo._id
+            lenderId: userInfo._id,
+
         }
         dispatch(update_product(obj))
       }

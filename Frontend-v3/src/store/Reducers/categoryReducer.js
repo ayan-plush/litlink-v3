@@ -12,8 +12,8 @@ export const categoryAdd = createAsyncThunk(
             const accessToken = localStorage.getItem('accessToken')
             const formData = new FormData()
             formData.append('name', name)
+            formData.append('accessToken', accessToken)
             formData.append('image', image)
-            formData.append(accessToken)
            const {data} = await api.post('/category-add',formData,{withCredentials: true})
            
             return fulfillWithValue(data)

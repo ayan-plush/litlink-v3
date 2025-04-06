@@ -81,7 +81,6 @@ class wishlistControllers{
     get_wishlist = async (req,res) => {
         const {userId} = req.params
 
-
         try {
                 const products = await wishlistModel.find({                
                         userId: {
