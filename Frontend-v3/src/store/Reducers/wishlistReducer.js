@@ -7,6 +7,7 @@ export const add_to_wishlist = createAsyncThunk(
     async(info,{rejectWithValue,fulfillWithValue}) => {
         
         try {
+        
            const {data} = await api.post('/wishlist/product/add-to-wishlist',info,{withCredentials: true})
             return fulfillWithValue(data)
         }

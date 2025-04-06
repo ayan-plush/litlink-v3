@@ -16,8 +16,10 @@ const FeatureProducts = ({latest_products}) => {
   
     
     const add_wishlist = (productId) => {
+        const accessToken = localStorage.getItem('accessToken')
         if(userInfo){
             dispatch(add_to_wishlist({
+                accessToken,
                 userId: userInfo._id,
                 productId: productId,
             }))
