@@ -4,6 +4,7 @@ module.exports.authMiddleware = async(req,res,next) => {
 
     // const {accessToken} = req.cookies
     const {accessToken} = req.body
+    console.log(accessToken)
     
     if(!accessToken){
         return res.status(409).json({error:'Please login first'})
@@ -25,6 +26,7 @@ module.exports.isAdmin = async(req,res,next) => {
 
     // const {accessToken} = req.cookies
     const {accessToken} = req.body
+    console.log(accessToken)
     
     if(!accessToken){
         return res.status(409).json({error:'Please login first'})
