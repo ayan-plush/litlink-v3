@@ -35,7 +35,7 @@ const ShopProducts = ({styles}) => {
 
                   if(userInfo){
                       dispatch(add_to_wishlist({
-                         accessToken,
+                        //  accessToken,
                           userId: userInfo._id,
                           productId: productId,
                       }))

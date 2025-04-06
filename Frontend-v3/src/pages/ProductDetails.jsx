@@ -96,7 +96,7 @@ const ProductDetails = () => {
 
             if(userInfo){
                 dispatch(add_to_wishlist({
-                    accessToken,
+                    // accessToken,
                     userId: userInfo._id,
                     productId: productId,
                 }))
