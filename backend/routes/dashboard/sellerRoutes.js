@@ -1,4 +1,5 @@
 const sellerController = require('../../controllers/dashboard/sellerController')
+const { authMiddleware, isAdmin } = require('../../middlewares/authMiddleware');
 
 const router = require('express').Router()
 
