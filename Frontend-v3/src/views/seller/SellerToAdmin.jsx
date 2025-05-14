@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { FaCross, FaEdit, FaImage, FaList, FaRegWindowClose, FaTrash } from 'react-icons/fa'
+import { useEffect, useRef, useState } from 'react'
+import { FaList, FaRegWindowClose} from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import io from 'socket.io-client'
 import { BsChatHeart } from "react-icons/bs";
 import { add_admin,  adminmessageClear,  get_admin_messages, messageClear, send_message_admin } from '../../store/Reducers/chatReducer'
-import toast from 'react-hot-toast'
-import { RingLoader } from 'react-spinners'
 
 const socket = io('https://litlink-backend.onrender.com')
 
@@ -36,6 +34,7 @@ const SellerToAdmin = () => {
                 dispatch(adminmessageClear())
             }
             // toast("post adminsuccessmessage")
+        // eslint-disable-next-line react-hooks/exhaustive-deps -- AVOID INFINITE LOOP
         },[adminsuccessMessage])
 
 
@@ -74,12 +73,14 @@ const SellerToAdmin = () => {
             userId:userInfo?._id,
             sellerId: adminId
         }))
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- AVOID INFINITE LOOP
     },[recieverMessage]) 
     useEffect(()=>{
         dispatch(add_admin({
             userId:userInfo._id,
             adminId : adminId
          }))
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- AVOID INFINITE LOOP     
     },[adminId])
     
    
