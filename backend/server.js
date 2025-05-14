@@ -8,15 +8,21 @@ const socket = require('socket.io')
 const http = require('http')
 const sellerModel = require('./models/sellerModel')
 const server = http.createServer(app)
+require('dotenv').config()
+
+const CORSBASE = process.env.BASE_URL
+console.log('CORSBASE:', process.env.BASE_URL);
+
+
 app.use(cors({
-    origin : ['https://litlink-frontend.onrender.com'], // idk if this is good tho process.env.BASE_URL 
+    origin : [`${CORSBASE}`], // idk if this is good tho process.env.BASE_URL 
     methods : "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials : true
 }))
 
 const io = socket(server,{
     cors: {
-        origin: ['https://litlink-frontend.onrender.com'],
+        origin: [process.env.BASE_URL],
         credentials: true
     }
 })
@@ -74,7 +80,6 @@ app.use('/api', require('./routes/chatRoutes'))
 app.use('/api', require('./routes/dashboard/categoryRoutes'))
 app.use('/api', require('./routes/dashboard/sellerRoutes'))
 app.use('/api', require('./routes/dashboard/productRoutes'))
-require('dotenv').config()
 app.get('/',(req,res)=>res.send('My backend'))
 const port = process.env.PORT 
 dbConnect()
