@@ -233,6 +233,9 @@ const EditProduct = () => {
             shopName: userInfo.name,
             tags: tags,
             lenderId: userInfo._id,
+            borrowerId: status.id,
+            borrowerName: status.name,
+            lenderName: userInfo.name
 
         }
         dispatch(update_product(obj))

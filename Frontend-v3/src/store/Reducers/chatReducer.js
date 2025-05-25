@@ -50,6 +50,22 @@ export const send_message = createAsyncThunk(
     }
 )
 
+export const send_message_book = createAsyncThunk(
+    'chat/send_message_book',
+    async(info,{rejectWithValue,fulfillWithValue}) => {
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }
+           const {data} = await api.post('/chat/user/send-book-to-user',info,{withCredentials: true})
+            
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
 export const send_message_admin = createAsyncThunk(
     'chat/send_message_admin',
     async(info,{rejectWithValue,fulfillWithValue}) => {
@@ -130,6 +146,22 @@ export const get_admins = createAsyncThunk(
     }
 )
 
+export const get_recipient_books = createAsyncThunk(
+    'chat/get_recipient_books',
+    async(info,{rejectWithValue,fulfillWithValue}) => {
+        try {
+            const accessToken = localStorage.getItem('accessToken')
+            info = { ...info, accessToken }
+           const {data} = await api.post('/chat/user/get-recipient-books',info,{withCredentials: true})
+            
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
 
 
 
@@ -144,6 +176,7 @@ export const chatReducer = createSlice({
         admin_messages:[],
         current_admin:"",
         current_seller:"",
+        current_seller_books:[],
         fb_messages:[],
         current_friend:"",
         adminsuccessMessage: '',
@@ -180,6 +213,11 @@ export const chatReducer = createSlice({
         state.fb_messages =[...state.fb_messages,payload.message] ;
         state.successMessage = 'Message Sent! 💌'
         })
+        .addCase(send_message_book.fulfilled, (state,{payload})=>{
+        state.my_friends = payload.newFriends;
+        state.fb_messages =[...state.fb_messages,payload.message] ;
+        state.successMessage = 'Message Sent! 💌'
+        })
         .addCase(send_message_admin.fulfilled, (state,{payload})=>{
             state.my_admins = payload.newFriends;
             state.admin_messages =[...state.admin_messages,payload.message] ;
@@ -190,6 +228,9 @@ export const chatReducer = createSlice({
         })
         .addCase(get_admin_messages.fulfilled, (state,{payload})=>{
             state.admin_messages = payload.messages
+        })
+        .addCase(get_recipient_books.fulfilled, (state,{payload})=>{
+            state.current_seller_books = payload.recipient_books
         })
     }
 })

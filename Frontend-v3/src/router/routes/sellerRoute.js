@@ -1,4 +1,5 @@
 import { lazy } from "react";
+import Lends from "../../views/seller/Lends";
 const FriendDetails = lazy(()=> import("../../views/seller/FriendDetails"));
 const Pending = lazy(()=> import("../../views/Pending"));
 const Deactive = lazy(()=> import("../../views/Deactive"));
@@ -33,6 +34,12 @@ export const sellerRoutes = [
     {
         path: '/seller/dashboard/products',
         element: <Products/>,
+        role: 'seller',
+        status : 'active'
+    },
+    {
+        path: '/seller/dashboard/lent_books',
+        element: <Lends/>,
         role: 'seller',
         status : 'active'
     },

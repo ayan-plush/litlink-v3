@@ -97,7 +97,7 @@ const SellerToAdmin = () => {
 
                         </div>
                         {
-                            my_admins?.map((f,i)=><div onClick={()=>navigate(`/seller/dashboard/chat-support/${f?.friendId}`)} key={i} className={`h-[60px] my-2 bg-[#887c6664] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-md cursor-pointer`}>
+                            my_admins?.map((f,i)=> f.friendId!==userInfo._id?<div onClick={()=>navigate(`/seller/dashboard/chat-support/${f?.friendId}`)} key={i} className={`h-[60px] my-2 bg-[#887c6664] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-md cursor-pointer`}>
                             <div className='relative'>
                                 <img className='w-[38px] h-[38px] rounded-full border-[#ffffff8f] object-cover border-2 max-w-[38px] p-[2px]' src={f.image} alt="" />
                                 {
@@ -114,7 +114,7 @@ const SellerToAdmin = () => {
                             </div>
 
 
-                        </div>)
+                        </div>:'')
                         }
 
                         {/* <div className={`h-[60px] bg-[#887c6664] flex justify-start gap-2 items-center text-[#fdebd0] px-2 py-2 rounded-md cursor-pointer`}>

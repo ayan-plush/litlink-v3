@@ -38,6 +38,21 @@ export const get_products = createAsyncThunk(
     }
 )
 
+export const get_lends = createAsyncThunk(
+    'product/get_lends',
+    async({perPage,page,searchValue,id},{rejectWithValue,fulfillWithValue}) => {
+               
+        
+        try {            
+           const {data} = await api.post(`/get-lends?page=${page}&&searchValue=${searchValue}&&perPage=${perPage}`,{id},{withCredentials: true})
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
 
 export const get_product = createAsyncThunk(
     'product/get_product',
@@ -100,6 +115,8 @@ export const productReducer = createSlice({
         loader: false,
         imageLoader: false,
         products: [],
+        lent_books: [],
+        totalLends: 0,
         totalProduct: 0,
         product : ''
     },
@@ -127,6 +144,10 @@ export const productReducer = createSlice({
          .addCase(get_products.fulfilled, (state,{payload})=>{
             state.totalProduct = payload.totalProduct;
             state.products = payload.products
+         })
+         .addCase(get_lends.fulfilled, (state,{payload})=>{
+            state.totalLends = payload.totalLends;
+            state.lent_books = payload.lend
          })
          .addCase(get_product.fulfilled, (state,{payload})=>{
             state.product = payload.product

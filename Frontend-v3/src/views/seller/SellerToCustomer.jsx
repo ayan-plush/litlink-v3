@@ -3,10 +3,13 @@ import { FaCross, FaEdit, FaImage, FaList, FaRegWindowClose, FaTrash } from 'rea
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import io from 'socket.io-client'
-import { add_friend, get_user_messages, messageClear, send_message } from '../../store/Reducers/chatReducer'
+import { add_friend, get_user_messages, messageClear, send_message, get_recipient_books } from '../../store/Reducers/chatReducer'
 import toast from 'react-hot-toast'
 import { RingLoader } from 'react-spinners'
 import { BsChatHeart } from 'react-icons/bs'
+import { PiBooksFill } from "react-icons/pi";
+import RequestBooks from '../../components/products/RequestBooks'
+
 
 // socket io has to be the last import
 const socket = io('https://litlink-backend.onrender.com')
@@ -17,7 +20,7 @@ const SellerToCustomer = () => {
     const {sellerId} =  useParams()
     const navigate = useNavigate()
     const {userInfo} = useSelector(state=>state.auth)
-    const {my_friends,current_friend,fb_messages,successMessage} = useSelector(state=>state.chat)
+    const {my_friends,current_friend,fb_messages,successMessage,current_seller_books} = useSelector(state=>state.chat)
     const [text,setText] = useState('')
     const [recieverMessage,setRecieverMessage]= useState('')
     const [activeUser,setActiveUser]= useState([])
@@ -38,6 +41,12 @@ const SellerToCustomer = () => {
             userId:userInfo._id,
             sellerId: sellerId || ""
          }))
+         if(sellerId){
+            dispatch(get_recipient_books({
+                recipientId: sellerId || ""
+            }))
+         }
+         
     },[sellerId]) 
     //if successmessage emit the message 3
     useEffect(()=>{
@@ -238,9 +247,16 @@ const SellerToCustomer = () => {
                                             <img className={`${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'invisible':''} w-[38px] h-[38px] rounded-full border-2 border-[#ffffff6c] object-cover max-w-[38px] p-[3px]`} src={current_friend?.image} alt="" />
 
                                             </div>
-                                            <div className={`${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'rounded-bl-lg ':' '} flex flex-wrap justify-center items-start flex-col w-full pr-3 bg-[#C1F6A7] text-black py-1 px-2 rounded-t-lg rounded-br-lg`}>
-                                            {m.message}
+                                            <div className='flex flex-col gap-1 items-start'>
+                                                <div>
+                                                {m.book?<img onClick={()=>navigate(`/product/details/${m.book._id}`)} className=' cursor-pointer mt-1 h-[150px] object-scale-down rounded-md ' src={m.book.images[0]} />:''}
+                                                </div>
+
+                                                <div className={`${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'rounded-bl-lg ':' '} flex flex-wrap justify-center items-start flex-col w-full pr-3 bg-[#C1F6A7] text-black py-1 px-2 rounded-t-lg rounded-br-lg`}>
+                                                {m.message}
+                                                </div>
                                             </div>
+                                            
 
                                         </div>
 
@@ -251,8 +267,13 @@ const SellerToCustomer = () => {
                                         <div className='flex font-light justify-end w-1/2 items-start gap-2 md:px-3 max-w-full lg:max-w-[85%]'>
                                             <div>
                                             </div>
-                                            <div className= {` ${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'rounded-br-lg ':' '} bg-[#363636] break-all text-white py-1 px-2 pl-3 rounded-t-lg rounded-bl-lg`} >
-                                            {m.message}
+                                            <div className='flex flex-col items-end gap-1'>
+                                                <div>
+                                                {m.book?<img onClick={()=>navigate(`/product/details/${m.book._id}`)} className=' mt-1 cursor-pointer h-[150px] object-scale-down rounded-md ' src={m.book.images[0]} />:''}
+                                                </div>
+                                                <div className= {` ${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'rounded-br-lg ':' '} bg-[#363636] break-all text-white py-1 px-2 pl-3 rounded-t-lg rounded-bl-lg`} >
+                                                {m.message}
+                                                </div>
                                             </div>
                                             <img className={` ${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'invisible':''} w-[38px] h-[38px] rounded-full border-2 border-[#ffffff6c] object-cover  max-w-[38px] p-[3px]`} src={userInfo.image} alt="" />
         
@@ -271,6 +292,8 @@ const SellerToCustomer = () => {
                             
                         </div>
                         <div className="flex gap-3 py-2">
+                        {/* <button className='bg-[#C1F6A7] relative hover:bg-[#b0f98c] cursor-pointer text-semibold w-[75px] h-[35px] rounded-md text-[#1B1B1B] uppercase flex justify-center items-center'><PiBooksFill /></button> */}
+                        <RequestBooks sellerId={sellerId} current_seller_books={current_seller_books} />
                         <input onKeyDown={handleKeyPress} value={text} onChange={(e)=> setText(e.target.value)} className='w-full autofill:shadow-[inset_0_0_0px_1000px_rgb(159,146,121)] flex justify-between px-2 border border-[#fff2df90] items-centerm py-[5px]  focus:border-[#fff2dfe8] overflow-auto placeholder-[#fff2df23] rounded-md outline-none bg-transparent text-[#fff2df]' type="text" placeholder='Enter Your Message' />
                         <button onClick={send} className='bg-[#C1F6A7] hover:bg-[#b0f98c] text-semibold w-[75px] h-[35px] rounded-md text-[#1B1B1B] uppercase flex justify-center items-center'>Send</button>
                         </div>

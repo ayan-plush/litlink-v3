@@ -91,6 +91,13 @@ export const allNav =[
         role: 'seller',
         path: '/seller/dashboard/products'
     },
+    {
+        id:12,
+        title: 'Lent Books',
+        icon: <FaBookReader />,
+        role: 'seller',
+        path: '/seller/dashboard/lent_books'
+    },
     // {
     //     id:12,
     //     title: 'Discount Books',
