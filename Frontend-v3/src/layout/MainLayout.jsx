@@ -17,7 +17,7 @@ function MainLayout() {
 
   
   return (
-    <div className='bg-[#C3B18D] bg-cover bg-center bg-[url("https://res.cloudinary.com/decks92gf/image/upload/v1739376514/paperbg_q6qqe1.jpg")]  w-full  min-h-screen '>
+    <div className='bg-[#C3B18D]   w-full  min-h-screen '>
       <div className={`${loading?'':'hidden'} w-screen h-screen flex items-center justify-center z-[999]  fixed bg-[#352217] `}>
                       <RingLoader className='' color='#FBF1D7' />
       </div>

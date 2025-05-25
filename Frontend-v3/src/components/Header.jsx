@@ -196,7 +196,7 @@ const Header = () => {
                             </div>
                             <div className='flex justify-start w-[40px] gap-5'>
                                 <div className='relative flex justify-center items-center cursor-pointer w-[25px] h-[25px] rounded-full bg-[#ffe5be] '>
-                                    <Link to='{`/seller/dashboard/chat-customer`}' className='text-[#312C23]]'><FaFacebookMessenger/></Link>
+                                    <Link to='/seller/dashboard/chat-customer' className='text-[#312C23]]'><FaFacebookMessenger/></Link>
                                     {/* <div className='bg-indigo-500 w-[15px] h-[15px] absolute rounded-full text-xs font-extralight text-white flex justify-center items-center -top-[3px] -right-[5px]'>{wishlist_count}</div> */}
                                 </div>                                
                             </div>
@@ -206,7 +206,7 @@ const Header = () => {
                                     {/* <div className='bg-indigo-500 w-[15px] h-[15px] absolute rounded-full text-xs font-extralight text-white flex justify-center items-center -top-[3px] -right-[5px]'>{wishlist_count}</div> */}
                                 </div>                                
                             </div>
-                        </div>:<Link to="/login" className={`${pathname === '/login' ? 'text-[#ffe5be]': ''} text-[2vh] py-2`}>LOG IN</Link>}
+                        </div>:<></>}
                         <div className='flex justify-end w-full'>
                         
                         </div>                  

@@ -227,7 +227,7 @@ const ProductDetails = () => {
                     </ul>        
                         </div>
                         <div className='py-3 text-[#312C23] px-2'>
-                        <h2 className='font-bold'>{p.name.slice(0,20)}</h2>
+                        <h2 className='font-bold'>{p.name.slice(0,20)}{p.name.length>20?'...':''}</h2>
                         <div className='flex justify-start items-center gap-3'>
                             <span className='text-md font-semibold'>By: {p.author}</span>
             
