@@ -105,6 +105,45 @@ class productControllers{
         }
     }
 
+    get_lend = async (req,res) => {
+        const {page,searchValue,perPage} = req.query        
+        const {id} = req.body
+        try {
+            let skipPage = ''
+            if (perPage&&page) {
+                skipPage = parseInt(perPage)*(parseInt(page)-1)
+            }
+
+            if (searchValue&&page&&perPage) {
+                const lend = await lendModel.find({
+                    $text: {$search: searchValue},
+                    lenderId: id
+                }).skip(skipPage).limit(perPage).sort({slug: 1})
+                const totalLends = await lendModel.find({
+                    $text: {$search: searchValue},
+                    lenderId: id
+                }).countDocuments()
+                responseReturn(res,200,{lend,totalLends})
+    
+            }
+            
+            else if(searchValue===''&&page&&perPage){
+                const lend = await lendModel.find({lenderId: id}).skip(skipPage).limit(perPage).sort({slug: 1})
+                const totalLends = await lendModel.find({lenderId: id}).countDocuments()
+                responseReturn(res,200,{lend,totalLends})
+            }
+            
+            else {
+                const lend = await lendModel.find({lenderId: id}).sort({slug: 1})
+                const totalLends = await lendModel.find({lenderId: id}).countDocuments()
+                responseReturn(res,200,{lend,totalLends})
+            }
+            
+        } catch (error) {
+            responseReturn(res,404,{error:error.message})
+        }
+    }
+
 
     
     get_product = async (req,res) => {
@@ -119,7 +158,8 @@ class productControllers{
     }
 
     update_product = async (req,res) => {
-        const {name,description,category,status,stock,tags,price,shopName,author,productId,lenderId} = req.body
+        const {name,description,category,status,stock,tags,price,shopName,author,productId,lenderId,borrowerId,lenderName} = req.body
+
         
         const slug = slugify(name).toLowerCase()
 
@@ -138,7 +178,7 @@ class productControllers{
             })
             const product = await productModel.findById(productId)
 
-            if(lenderId!==''){
+            if(borrowerId!==''){
                 const checkStatus = await lendModel.findOne({$and:[
                     {
                         lenderId:{
@@ -156,9 +196,10 @@ class productControllers{
                     await lendModel.create({
                         lenderId: lenderId,
                         borrowerId: status.id,
+                        borrowerName:status.name,
+                        lenderName: lenderName,
                         bookId: productId,
                         book: product
-
                     })
 
                 }
@@ -174,11 +215,18 @@ class productControllers{
                     {
                         lenderId: lenderId,
                         borrowerId: status.id,
+                        borrowerName:status.name,
+                        lenderName: lenderName,
                         bookId: productId,
                         book: product
 
                     })
                 }
+            }
+            else{
+                const lend = await lendModel.findOneAndDelete({
+                        bookId: productId
+                })
             }
             
 

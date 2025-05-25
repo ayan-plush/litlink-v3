@@ -13,6 +13,10 @@ const sellerCustomerMessageSchema = new Schema({
         type: String,
         required: true,
     },
+    book:{
+        type: Object,
+        default:{}
+    },
     message : {
         type: String,
         required: true,

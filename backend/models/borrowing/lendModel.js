@@ -9,6 +9,14 @@ const lendSchema = new Schema({
         type: String,
         required: true,
     },
+    lenderName: {
+        type: String,
+        required: true
+    },
+    borrowerName: {
+        type: String,
+        required: true
+    },
     bookId : {
         type: String,
         required: true,
@@ -18,5 +26,7 @@ const lendSchema = new Schema({
         required: true,
     }
 },{timestamps: true})
+
+lendSchema.index({"book.name": "text"})
 
 module.exports = model('lend', lendSchema)
