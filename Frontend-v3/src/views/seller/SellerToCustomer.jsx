@@ -249,7 +249,7 @@ const SellerToCustomer = () => {
                                             </div>
                                             <div className='flex flex-col gap-1 items-start'>
                                                 <div>
-                                                {m.book?<img onClick={()=>navigate(`/product/details/${m.book._id}`)} className=' cursor-pointer mt-1 h-[150px] object-scale-down rounded-md ' src={m.book.images[0]} />:''}
+                                                {m.book?<img onClick={()=>navigate(`/seller/dashboard/edit-product/${m.book._id}`)} className=' cursor-pointer mt-1 h-[150px] object-scale-down rounded-md ' src={m.book.images[0]} />:''}
                                                 </div>
 
                                                 <div className={`${fb_messages[i-1]?.senderId===fb_messages[i]?.senderId?'rounded-bl-lg ':' '} flex flex-wrap justify-center items-start flex-col w-full pr-3 bg-[#C1F6A7] text-black py-1 px-2 rounded-t-lg rounded-br-lg`}>
