@@ -199,7 +199,7 @@ const ProductDetails = () => {
 
     <section>
     <div className='w-[85%] max-md:w-[80%] max-sm:w-[90%] max-lg:w-[90%] h-full mx-auto'>
-    <div className='flex pl-3  justify-start text-[#312C23] items-center'><h1 className=' pt-10 font-[impacted] text-4xl'>OTHER RECOMENDATIONS:</h1></div>
+    <div className='flex pl-3  justify-start text-[#312C23] items-center'><h1 className=' pt-10 font-[impacted] text-4xl'>OTHER RECOMMENDATIONS:</h1></div>
     <div className='max-md-lg:hidden'>
         <Carousel className='pl-3  pt-5'
                         autoPlay={false}
@@ -227,7 +227,7 @@ const ProductDetails = () => {
                     </ul>        
                         </div>
                         <div className='py-3 text-[#312C23] px-2'>
-                        <h2 className='font-bold'>{p.name}</h2>
+                        <h2 className='font-bold'>{p.name.slice(0,20)}</h2>
                         <div className='flex justify-start items-center gap-3'>
                             <span className='text-md font-semibold'>By: {p.author}</span>
             
