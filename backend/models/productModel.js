@@ -59,6 +59,10 @@ const productSchema = new Schema({
             name : "Available",
             id : ''
         },
+    },
+    similar : {
+        type: Array,
+        default: []
     }
 },{timestamps: true})
 

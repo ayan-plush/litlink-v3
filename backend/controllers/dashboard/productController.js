@@ -300,6 +300,12 @@ class productControllers{
 
         console.log('trying')
 
+        const targetBook = productModel.findById(id);
+
+        if(targetBook.similar.length>1){
+            responseReturn(res, 200, { sorted: targetBook.similar });
+        }
+
         try {
         const model = await use.load();
         const books = await productModel.find({});
@@ -315,7 +321,7 @@ class productControllers{
 
         const embeddings = await model.embed(texts);
 
-        const targetBook = productModel.findById(id);
+
 
         console.log('trying')
 
@@ -341,6 +347,7 @@ class productControllers{
         .filter((_, i) => i !== targetIndex) // exclude the input book itself
         .sort((a, b) => b.score - a.score)
         .slice(0, 5);
+        await productModel.findByIdAndUpdate(id,{similar: sorted})
         responseReturn(res,200,{sorted})
     }
     catch(error){
