@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt')
 const { createToken } = require("../utils/tokenCreate")
 const formidable = require("formidable")
 const jwt = require("jsonwebtoken");
+const { sendVerificationEmail } = require("./mailController")
 
 
 
@@ -43,6 +44,24 @@ class authControllers {
         }
     }
 
+    mail_verify = async(req,res) => {
+        const {token, userId} = req.body
+        try{
+            const deCodeToken = await jwt.verify(token,process.env.SECRET)
+            if(deCodeToken.id===userId){
+                await sellerModel.findByIdAndUpdate(userId,{status: 'active'})
+                return responseReturn(res,200,{message: "email verified"})
+            }
+            else{
+                return responseReturn(res,400,{error: "token invalid"})
+            }
+            
+        }
+        catch(error){
+            return responseReturn(res,500,{error: error.message})
+        }
+    }
+
     seller_register = async(req,res) => {
         const {name,email,password} = req.body
         try{
@@ -51,12 +70,12 @@ class authControllers {
                 responseReturn(res,404,{error:"Email Already Exists"})
             }
             else{
+                
                 const seller = await sellerModel.create({
                     name,
                     email,
                     password: await bcrypt.hash(password, 10),
                     method: "manually",
-                    shopInfo: {}
                 })
                 await sellerCustomerModel.create({
                     myId: seller.id
@@ -64,10 +83,11 @@ class authControllers {
                 const token = await createToken({
                     id: seller.id,
                     role: seller.role
-                })
+                }) 
                 res.cookie('accessToken',token,{
                     expires : new Date(Date.now()+7*24*60*60*1000)
                 })
+                await sendVerificationEmail(email,token)
                 responseReturn(res,201,{token,message:"Register Successful"})
             }
         }

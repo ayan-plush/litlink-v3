@@ -1,5 +1,6 @@
 import { lazy } from "react";
-import Lends from "../../views/seller/Lends";
+const Verify = lazy(()=> import("../../views/seller/Verify"));
+const Lends = lazy(()=> import("../../views/seller/Lends"));
 const FriendDetails = lazy(()=> import("../../views/seller/FriendDetails"));
 const Pending = lazy(()=> import("../../views/Pending"));
 const Deactive = lazy(()=> import("../../views/Deactive"));

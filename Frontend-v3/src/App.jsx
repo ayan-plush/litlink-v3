@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { get_user_info } from './store/Reducers/authReducer'
 import { get_category } from './store/Reducers/homeReducer'
 import { get_from_wishlist } from './store/Reducers/wishlistReducer'
+import toast from 'react-hot-toast'
 
 function App ()  {
 
@@ -32,7 +33,6 @@ function App ()  {
   useEffect(()=>{
     const routes = getRoutes()
     setAllRoutes([...allRoutes,routes])
-
   },[])
   useEffect(()=>{
     if(token){
@@ -45,7 +45,9 @@ function App ()  {
   useEffect(() => {
     dispatch(get_category())
     dispatch(get_from_wishlist(userInfo?._id))
-},[])
+    
+  },[])
+  
   return <Router allRoutes = {allRoutes}/>
 }
 

@@ -24,6 +24,7 @@ const Footer = lazy(()=> import('../components/Footer'));
 const ShopHome3 = () => {
 
     const dispatch = useDispatch()
+
     const {latest_products,products,home_products,loader} = useSelector(state => state.home)
     const {successMessage,errorMessage} = useSelector(state => state.wishlist)
     const circle = () => {
@@ -84,7 +85,7 @@ const ShopHome3 = () => {
                   <RingLoader className='w-[700px] h-[700px]' color='#FBF1D7' />
                 </div>
           <Header/>
-          <Parallax className='overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]' pages={2.5}>
+          <Parallax className='overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]' pages={2.4}>
                 
           <ParallaxLayer speed={-0.22} >
           <div className=' landing-banner relative overflow-hidden max-md:h-[100%] h-[190%]'>

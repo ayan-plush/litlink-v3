@@ -14,6 +14,7 @@ import { lazy } from "react";
 // const SellerDashboard = lazy(()=> import("../../views/seller/SellerDashboard"));
 // const Unauthorized = lazy(()=> import("../../views/Unauthorized"));
 import Wishlist from './../../pages/Wishlist';
+import Verify from "../../views/seller/Verify";
 
 
 
@@ -24,7 +25,7 @@ export const sellerShopRoutes = [
         element: <Wishlist/>,
         role: 'seller',
         visability : ['active','deactive','pending']
-    },
+    }
     // {
     //     path: '/seller/dashboard',
     //     element: <SellerDashboard/>,

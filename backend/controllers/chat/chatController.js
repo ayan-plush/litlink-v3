@@ -205,7 +205,7 @@ class chatController{
                     const myFriends = await sellerAdminModel.findOne({myId: {$eq: userId}})
                     const currentFriend_admin = myFriends.myFriend.find(s=>s.friendId===adminId)
                     responseReturn(res,200,{
-                        MyFriends_admin: myFriends.myFriend,
+                        MyFriends_admin: myFriends.myFriend || [],
                         currentFriend_admin,
                         messages
                     })
@@ -213,7 +213,7 @@ class chatController{
             else {
                 const myFriends = await sellerAdminModel.findOne({myId: {$eq: userId}})
                 responseReturn(res,200,{
-                    MyFriends_admin: myFriends.myFriend
+                    MyFriends_admin: myFriends.myFriend || []
                 })
             }
             

@@ -44,6 +44,9 @@ const Header = () => {
 
   return (
     <div className="backdrop-blur-sm  bg-[#ffffff17]  w-screen z-200 fixed">
+        <div className={` ${userInfo?(userInfo.status==='pending'?'':'hidden'): 'hidden'} header-top h-[25px] bg-[#fc2f40] flex justify-center font-extralight items-center text-[#fff2df]`} >  
+        Please Verify Your Email !!!
+      </div>
       <div className="header-top  bg-[#312C23] max-md-lg:hidden text-[#fff2df] ">  
         <div className='w-[85%] max-lg:w-[90%] mx-auto'>
             <div className='flex w-full justify-between items-center h-[50px]'>

@@ -93,12 +93,12 @@ const Login = () => {
 
 
             <div className='flex justify-center items-center gap-3 '>
-              <div className='w-[135px] h-[35px] border-[2px] border-[#83765e] hover:border-[#312C23]  flex rounded-md bg-[#312C23] text-white  justify-center cursor-pointer items-center overflow-hidden'>
+              <a href='http://localhost:5000/api/seller/google' className='w-[135px] h-[35px] border-[2px] border-[#83765e] hover:border-[#312C23]  flex rounded-md bg-[#312C23] text-white  justify-center cursor-pointer items-center overflow-hidden'>
               <span><FaGoogle/></span>
-              </div>
-              <div className='w-[135px] h-[35px] border-[2px] border-[#83765e] hover:border-[#312C23] flex rounded-md bg-[#312C23] text-white  justify-center cursor-pointer items-center overflow-hidden'>
+              </a>
+              {/* <div className='w-[135px] h-[35px] border-[2px] border-[#83765e] hover:border-[#312C23] flex rounded-md bg-[#312C23] text-white  justify-center cursor-pointer items-center overflow-hidden'>
               <span><FaFacebook/></span>
-              </div>
+              </div> */}
             </div>
 
           </form>

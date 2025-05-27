@@ -9,6 +9,11 @@ const http = require('http')
 const sellerModel = require('./models/sellerModel')
 const server = http.createServer(app)
 require('dotenv').config()
+const passport = require('passport');
+const session = require('express-session');
+require('./utils/passport');
+
+
 
 const CORSBASE = process.env.BASE_URL
 console.log('CORSBASE:', process.env.BASE_URL);
@@ -69,6 +74,14 @@ io.on('connection', (soc) => {
         io.emit('activeUser',allCustomer)
     })
 })
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.json())
 app.use(cookieParser())

@@ -1,4 +1,6 @@
 import { lazy } from "react";
+import Verify from "../../views/seller/Verify";
+import OAuthRedirectHandler from "../../views/auth/OAuthRedirectHandler";
 const ForDevs = lazy(()=> import("../../views/auth/ForDevs"));
 const AboutUs = lazy(()=> import("../../views/auth/AboutUs"));
 const ShopHome3 = lazy(()=> import("../../pages/ShopHome3"));
@@ -23,6 +25,14 @@ const publicRoutes = [
     {
         path: '/register',
         element: <Register/>
+    },
+    {
+        path: '/googleVerify/:token',
+        element: <OAuthRedirectHandler/>
+    },
+    {
+        path: '/verify/:token',
+        element: <Verify/>
     },
     {
         path: '/admin/login',

@@ -32,6 +32,20 @@ export const seller_register = createAsyncThunk(
     }
 )
 
+export const mail_verification = createAsyncThunk(
+    'auth/mail_verification',
+    async(info,{rejectWithValue,fulfillWithValue}) => {
+        
+        try {
+           const {data} = await api.post('/mail-verification',info,{withCredentials: true})
+            return fulfillWithValue(data)
+        }
+        catch(error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
 export const seller_login = createAsyncThunk(
     'auth/seller_login',
     async(info,{rejectWithValue,fulfillWithValue}) => {
@@ -143,6 +157,7 @@ export const authReducer = createSlice({
         errorMessage: '',
         loader: false,
         userInfo: '',
+        mail: false,
         role: returnRole(localStorage.getItem('accessToken')),
         token: localStorage.getItem('accessToken')
     },
@@ -150,6 +165,10 @@ export const authReducer = createSlice({
         messageClear : (state,_)=>{
             state.errorMessage=""
             state.successMessage=""
+        },
+        setOAuthToken: (state, { payload }) => {
+            state.token = payload.token;
+            state.role = returnRole(payload.token);
         }
 
     },
@@ -229,7 +248,10 @@ export const authReducer = createSlice({
             state.token = '';
             state.role = '';
          })
+         .addCase(mail_verification.fulfilled, (state,{payload})=>{
+            state.mail = true;
+         })
     }
 })
-export const {messageClear} = authReducer.actions
+export const {messageClear, setOAuthToken } = authReducer.actions
 export default authReducer.reducer

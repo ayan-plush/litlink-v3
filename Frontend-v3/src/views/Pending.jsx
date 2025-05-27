@@ -11,7 +11,7 @@ const Pending = () => {
       <div className='bg-[#312C23] flex justify-center items-center h-[300px] md:h-[500px] rounded-md p-4'>
         <div className='flex flex-col  justify-center items-center'>
           <MdOutlineSupportAgent className='text-[#fff2dfe2] h-[100px] w-[100px]' />
-          <span onClick={()=>navigate('/seller/dashboard/chat-support/6783289d783b7c77461edb7e')}  className='text-[#fff2df] hover:cursor-pointer font-extralight text-md md:text-3xl pt-5'>Contact Support to get Approved!!</span>
+          <span onClick={()=>navigate('/seller/dashboard/chat-support/6783289d783b7c77461edb7e')}  className='text-[#fff2df] hover:cursor-pointer font-extralight text-md md:text-3xl pt-5'>Please Verify Your Email !!</span>
         </div>
       
       </div>

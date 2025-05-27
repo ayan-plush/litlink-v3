@@ -37,7 +37,7 @@ const AddProduct = () => {
             discount: "",
             price: "",
             author: "",
-            stock: ""
+            rating: ""
           })
           setImages([])
           setImageShow([])
@@ -77,7 +77,7 @@ const AddProduct = () => {
         discount: "",
         price: "",
         author: "",
-        stock: ""
+        rating: ""
     })
 
     const inputHandle = (e)=> {
@@ -174,6 +174,8 @@ const AddProduct = () => {
         
     },[categories]) 
 
+    const [rating,setRating] = useState(0)
+
 
     const add = (e) => {
         e.preventDefault()
@@ -184,7 +186,7 @@ const AddProduct = () => {
         formData.append('price',state.price)
         formData.append('author',state.author)
         formData.append('discount',state.discount)
-        formData.append('stock',state.stock)
+        formData.append('rating',state.rating)
         formData.append('shopName',userInfo?.name)
         formData.append('category',category)
         formData.append('sellerId',userInfo?._id)
@@ -229,8 +231,8 @@ const AddProduct = () => {
                         </div>
 
                         <div className='flex flex-col w-full gap-1'>
-                            <label htmlFor='stock'>Stock</label>
-                            <input onChange={inputHandle} value={state.stock} type="text"  name='stock' id='stock' placeholder='Stock' className='  autofill:shadow-[inset_0_0_0px_1000px_rgb(159,146,121)] px-4 py-2 outline-none border bg-transparent border-[#fff2df23] rounded-3xl text-[#fff2df] focus:border-[#fff2df73] overflow-auto placeholder-[#fff2df23]' />
+                            <label htmlFor='rating'>Rating</label>
+                            <input onChange={inputHandle} value={state.rating} type="text"  name='rating' id='rating' placeholder='Rating' className='  autofill:shadow-[inset_0_0_0px_1000px_rgb(159,146,121)] px-4 py-2 outline-none border bg-transparent border-[#fff2df23] rounded-3xl text-[#fff2df] focus:border-[#fff2df73] overflow-auto placeholder-[#fff2df23]' />
                             
                         </div>
 

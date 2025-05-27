@@ -5,6 +5,8 @@ const { default: slugify } = require("slugify")
 const productModel = require("../../models/productModel")
 const { extractPublicId } = require ('cloudinary-build-url')
 const lendModel = require("../../models/borrowing/lendModel")
+const tf = require('@tensorflow/tfjs');
+const use = require('@tensorflow-models/universal-sentence-encoder');
 
 
 const cloudinary = require('cloudinary').v2
@@ -13,7 +15,7 @@ class productControllers{
     add_product = async (req,res) => {
         const form = formidable({multiples:true})
         form.parse(req,async(err,field,files)=>{
-            let {name,category,description,stock,price,tags,sellerId,shopName,author,accessToken} = field
+            let {name,category,description,rating,price,tags,sellerId,shopName,author,accessToken} = field
             const deCodeToken = await jwt.verify(accessToken,process.env.SECRET)
             if(!accessToken||deCodeToken.id!==sellerId){
                 responseReturn(res,409,{message: 'unauthorized'})
@@ -48,11 +50,12 @@ class productControllers{
                     category: category,
                     author: author,
                     price: parseInt(price),
-                    stock: parseInt(stock),
+                    rating: parseInt(rating),
                     shopName,
                     tag:tags,
                     description: description,
-                    images: allImageUrl
+                    images: allImageUrl,
+                    stock: 1
                 })
                 responseReturn(res,201,{message: 'Book Added Successfully'})
                 
@@ -289,6 +292,53 @@ class productControllers{
             
             
         })  
+    }
+
+    get_simillar_books = async(req,res) => {
+
+        const {id} = req.body
+
+        try {
+        const model = await use.load();
+        const books = await productModel.find({});
+
+        if (!books.length) {
+            responseReturn(res, 404, { error: "No books found" });
+        }
+
+
+        const texts = books.map(p => 
+        `${p.name} ${p.category} ${p.author} ${p.description} ${p.tag.join(' ')}`
+        );
+
+        const embeddings = await model.embed(texts);
+
+        const targetBook = productModel.findById(id);
+
+        if(!targetBook){
+            responseReturn(res,400,{error: "book not found"})
+        }
+        const targetIndex = books.findIndex(p => p._id.toString() === id);
+        if (targetIndex === -1) {
+            return responseReturn(res, 400, { error: "Book not found" });
+        }
+
+        const targetEmbedding = embeddings.slice([targetIndex, 0], [1, -1]);
+        const similarities = embeddings.matMul(targetEmbedding.transpose()).arraySync();
+        const scored = similarities.map((scoreArr, i) => ({
+        score: scoreArr[0],
+        book: books[i]
+        }));
+        const sorted = scored
+        .filter((_, i) => i !== targetIndex) // exclude the input book itself
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 5);
+        responseReturn(res,200,{sorted})
+    }
+    catch(error){
+        responseReturn(res,500,{error: error.message})
+    }
+
     }
 
 

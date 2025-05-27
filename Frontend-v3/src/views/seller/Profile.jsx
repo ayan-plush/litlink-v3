@@ -130,10 +130,10 @@ const Profile = () => {
                             <span> Email: </span>
                             <span>  {userInfo?.email}  </span>
                         </div>
-                        <div className='flex gap-2'>
+                        {/* <div className='flex gap-2'>
                             <span> Role : </span>
                             <span>  {userInfo?.role}  </span>
-                        </div>
+                        </div> */}
                         <div className='flex gap-2'>
                             <span> Status: </span>
                             <span>  {userInfo?.status}  </span>
@@ -213,7 +213,7 @@ const Profile = () => {
             <div className='w-full md:w-6/12 pl-0 md:pl-7 mt-6 md:mt-0'>
 
             <div className='p-4  bg-[#312C23] text-[#fdebd0] rounded-md'>
-            <h1 className='text-xl font-[impacted]'>Change Password {phrase} </h1>
+            <h1 className='text-xl font-[impacted]'>Change Password</h1>
             <form>
                             <div className='flex flex-col w-full gap-1 mb-2'>
                             <label htmlFor='email'>email</label>
