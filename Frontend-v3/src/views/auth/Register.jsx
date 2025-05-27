@@ -101,7 +101,7 @@ useEffect(()=> {
             </div>
 
             <div className='flex justify-center items-center gap-3 '>
-              <a href='http://localhost:5000/api/seller/google' className='w-[135px] h-[35px] border-[2px] border-[#83765e] hover:border-[#312C23]  flex rounded-md bg-[#312C23] text-white  justify-center cursor-pointer items-center overflow-hidden'>
+              <a href='https://litlink-backend.onrender.com/api/seller/google' className='w-[135px] h-[35px] border-[2px] border-[#83765e] hover:border-[#312C23]  flex rounded-md bg-[#312C23] text-white  justify-center cursor-pointer items-center overflow-hidden'>
               <span><FaGoogle/></span>
               </a>
               {/* <div className='w-[135px] h-[35px] border-[2px] border-[#83765e] hover:border-[#312C23] flex rounded-md bg-[#312C23] text-white  justify-center cursor-pointer items-center overflow-hidden'>
