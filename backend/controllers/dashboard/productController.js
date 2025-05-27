@@ -298,6 +298,8 @@ class productControllers{
 
         const {id} = req.body
 
+        console.log('trying')
+
         try {
         const model = await use.load();
         const books = await productModel.find({});
@@ -315,13 +317,18 @@ class productControllers{
 
         const targetBook = productModel.findById(id);
 
+        console.log('trying')
+
         if(!targetBook){
             responseReturn(res,400,{error: "book not found"})
         }
         const targetIndex = books.findIndex(p => p._id.toString() === id);
         if (targetIndex === -1) {
             return responseReturn(res, 400, { error: "Book not found" });
+
         }
+
+        console.log('trying')
 
         const targetEmbedding = embeddings.slice([targetIndex, 0], [1, -1]);
         const similarities = embeddings.matMul(targetEmbedding.transpose()).arraySync();
@@ -329,6 +336,7 @@ class productControllers{
         score: scoreArr[0],
         book: books[i]
         }));
+        console.log('trying')
         const sorted = scored
         .filter((_, i) => i !== targetIndex) // exclude the input book itself
         .sort((a, b) => b.score - a.score)
