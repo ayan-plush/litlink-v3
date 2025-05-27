@@ -11,6 +11,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendVerificationEmail = async (to, token) => {
+  console.log(process.env.SMTP_PASS,"smtp pass")
   const link = `${process.env.BASE_URL}/verify/${token}`;
   const mailOptions = {
     from: '"LitLink" <ayankhajuria2005@gmail.com>',
